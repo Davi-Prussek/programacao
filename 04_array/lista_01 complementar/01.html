@@ -1,0 +1,46 @@
+<script>
+    /*
+    PROBLEMA: Organizando uma Fila de Atendimento
+    Simule uma fila de atendimento onde uma nova pessoa chega e entra no final da fila, e a pessoa que estava na primeira posição é atendida e sai da fila.
+
+    Instruções:
+
+    Declare um array filaDeAtendimento com os nomes: ["Ana", "Bruno", "Carla"].
+    Simule a chegada de um novo cliente. Use um método para adicionar o nome ao final do array, sendo que este nome será informado pelo usuário.
+    Considere que um cliente já foi atendido. Pergunte ao usuário qual foi o cliente atendido e use o método splice para removê-lo do array.
+    Exiba a lista de clientes na fila atualizada.
+    */
+    const filaDeAtendimento = ["Ana", "Bruno", "Carla"];
+
+    let letraMaiuscula = (nome) => {
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+    //ENTRADA
+    let cliente = prompt("Digite o nome do novo cliente").trim();
+
+    while(!/^[a-zA-Z\s]+$/.test(cliente)) {
+        alert("Digite apenas letras");
+        cliente = prompt("Digite o nome do novo cliente").trim();}
+
+    let retirar = prompt("Digite o nome do cliente que deseja retirar: \n\n("+filaDeAtendimento+")");
+    while(cliente.includes(retirar) || retirar == "" || !/^[a-zA-Z\s]+$/.test(retirar)) {
+        alert("Escreva apenas o nome de clientes existentes!");
+        retirar = prompt("Digite o nome do cliente que deseja retirar: \n\n("+filaDeAtendimento+")").trim();}
+
+    //PROCESSAMENTO
+    filaDeAtendimento.push(letraMaiuscula(cliente));
+
+    const ato1 = filaDeAtendimento.indexOf(letraMaiuscula(retirar));
+    filaDeAtendimento.splice(ato1, 1);
+
+    //SAÍDA
+alert("A nova lista de clientes será: "+filaDeAtendimento.join(", "));
+</script>

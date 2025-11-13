@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: CONTA BANCÁRIA
+    Crie um objeto chamado conta com as propriedades numero, saldo, tipo, e crie um método que retorne todas as propriedades.
+    */
+    
+    //ENTRADA
+    let numeroDaConta = (numero) => {
+    let contaDividida = numero.split("");
+    let processamento_I = contaDividida.length-1;
+    let parte_I = contaDividida.slice(0, processamento_I);
+    let processamento_II = contaDividida.pop();
+    return parte_I.join("")+"-"+processamento_II;}
+
+    let conta = {
+    numero: 0, 
+    saldo: 0,
+    tipo: 0,
+    informacoesGerais: function () { return "Número da conta: "+this.numero+"\nSaldo bancário: "+this.saldo+"\nTipo da conta: "+this.tipo}
+}
+
+let numero = prompt("Digite o nùmero da conta").trim();
+while (/[a-zA-Z]/.test(numero) && numero.length < 18) {
+alert("Digite apenas valores numéricos!");
+numero = prompt("Digite o nùmero da conta").trim();
+}
+let saldo = Number(prompt("Digite seu saldo"));
+while(/[a-zA-Z]/.test(saldo)) {
+    alert("Digite um saldo válido!");
+    saldo = Number(prompt("Digite seu saldo"));
+}
+let tipo = prompt("Digite o tipo da sua conta").trim().toLowerCase();
+while(/^[A-Za-z]+$/.test(tipo)) {
+    alert("Digite um tipo válido!");
+    tipo = prompt("Digite o tipo da sua conta").trim().toLowerCase();
+}
+    //PROCESSAMENTO
+conta.numero = numeroDaConta(numero);
+conta.saldo = saldo.toFixed(2)+" reais";
+conta.tipo = tipo;
+    //SAÍDA
+alert(conta.informacoesGerais());
+</script>

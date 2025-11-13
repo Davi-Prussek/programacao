@@ -1,0 +1,28 @@
+<script>
+  /*
+    PROBLEMA: CUMPRIMENTAR
+    Desenvolva um programa que contenha uma função que apresente um cumprimento para o usuário, mostrando a seguinte mensagem:
+    "Bom dia, Visitante!"
+    *Substitua a palavra Visitante pelo nome do usuário, que será fornecido pelo próprio usuário.
+    */
+  //ENTRADA
+
+//CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+
+  let nome = prompt("Qual seu nome?").trim();
+  while (!isNaN(nome)) {
+    alert("Responda apenas com números!");
+    nome = prompt("Qual seu nome?").trim();
+  }
+  //PROCESSAMENTO
+  function colocarNoArray() {
+    let listaNome = [];
+    let comeco = nome.split("");
+    let finalmente = comeco.shift();
+    //Parte pra definir um resultado no loop
+    return (resultado = finalmente.toUpperCase() + comeco.join(""));
+  }
+  //SAÍDA
+  colocarNoArray();
+  alert("Bom dia " + colocarNoArray() + "!");
+</script>

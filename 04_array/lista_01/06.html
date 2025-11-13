@@ -1,0 +1,137 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: LOJA DE VEÍCULOS
+    Crie os seguintes arrays:
+    let carrosSUV = ["Tiggo", "Sportage", "Tucson", "EcoSport"];
+    let cassosSedan = ["Civic", "Corolla", "Arizzo", "Fusion"];
+    let carrosHatch = ["308", "Focus", "i30"];
+    
+    Peça para o usuário informar mais três veículos para serem inseridos na lista. Para inserir na lista correta, peça também para o usuário identificar o tipo de veículo que deseja inserir, se é SUV, Sedan ou Hatch.
+
+    Apresente a lista final de cada tipo de veículo.
+    */
+
+    //ENTRADA
+
+    //Parte I-01 pergunta-1
+    let carro1 = prompt("Insira um carro que deseja colocar na lista").trim().toLowerCase();
+
+    //Parte I-02 loop-1
+    while (!isNaN(carro1)) {
+        alert("Insira apenas letras!");
+        carro1 = prompt("Insira um carro que deseja colocar na lista").trim().toLowerCase();
+    }
+
+    //Parte I-03 pergunta-2
+    let tipo1 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+
+    //Parte I-04 loop-2
+    while (tipo1 !== "suv" && tipo1 !== "sedan" && tipo1 !== "hatch") {
+        alert("Insira apenas tipos válidos!");
+        tipo1 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+    }
+
+
+    //Parte II-01 pergunta-1
+    let carro2 = prompt("Insira outro carro que deseja colocar na lista").trim().toLowerCase();
+
+    //Parte II-02 loop-1
+    while (!isNaN(carro2)) {
+        alert("Insira apenas letras!");
+        carro1 = prompt("Insira um carro que deseja colocar na lista").trim().toLowerCase();
+    }
+
+    //Parte II-03 pergunta-2
+    let tipo2 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+
+    //Parte II-04 loop-2
+    while (tipo2 !== "suv" && tipo2 !== "sedan" && tipo2 !== "hatch") {
+        alert("Insira apenas tipos válidos!");
+        tipo2 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+    }
+
+
+    //parte III-01 pergunta-1
+    let carro3 = prompt("Insira um terceiro carro que deseja colocar na lista").trim().toLowerCase();
+
+    //Parte III-02 loop-1
+    while (!isNaN(carro3)) {
+        alert("Insira apenas letras!");
+        carro1 = prompt("Insira um carro que deseja colocar na lista").trim().toLowerCase();
+    }
+
+    //parte III-03 pergunta-2
+    let tipo3 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+
+    //parte III-04 loop-2
+    while (tipo3 !== "suv" && tipo3 !== "sedan" && tipo3 !== "hatch") {
+        alert("Insira apenas tipos válidos!");
+        tipo3 = prompt("Qual o tipo do carro?\n\n(Tipos: SUV, sedan ou hatch)").trim().toLowerCase();
+    }
+
+    //PROCESSAMENTO
+    const carrosSUV = ["tiggo", "sportage", "tucson", "ecosport"];
+    const carrosSedan = ["civic", "corolla", "arizzo", "fusion"];
+    const carrosHatch = ["308", "focus", "i30"];
+
+    //parte I
+    switch (tipo1) {
+        case "suv":
+
+            carrosSUV.push(carro1);
+
+            break;
+        case "sedan":
+
+            carrosSedan.push(carro1);
+
+            break;
+        case "hatch":
+
+            carrosHatch.push(carro1);
+
+            break;
+    }
+
+    //parte II
+    switch (tipo2) {
+        case "suv":
+
+            carrosSUV.push(carro2);
+
+            break;
+        case "sedan":
+
+            carrosSedan.push(carro2);
+
+            break;
+        case "hatch":
+
+            carrosHatch.push(carro2);
+
+            break;
+    }
+
+    //parte III
+    switch (tipo3) {
+        case "suv":
+
+            carrosSUV.push(carro3);
+
+            break;
+        case "sedan":
+
+            carrosSedan.push(carro3);
+
+            break;
+        case "hatch":
+
+            carrosHatch.push(carro3);
+
+            break;
+    }
+    //SAÍDA
+
+    alert("A lista de carros SUV é: " +carrosSUV.join(" - ")+"\n\nA lista de carros Sedan é: " +carrosSedan.join(" - ")+"\n\nA lista de carros Hatch é: " +carrosHatch.join(" - "));
+</script>

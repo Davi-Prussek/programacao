@@ -1,0 +1,53 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: NOME COMPLETO DA PESSOA
+    Crie um objeto chamado pessoa com as propriedades nome e sobrenome, e crie um método que retorne o nome completo da pessoa.
+    */
+
+
+    let letraMaiuscula = (nome) => {
+        let nomeComeco = nome.charAt(0)
+        let restoNome = nome.substring(1);
+        return nome = nomeComeco.toUpperCase() + restoNome;
+    }
+
+    //ENTRADA
+    let pessoa = {
+        nome: "",
+        sobrenome: [],
+        nomeCompleto: function () { return this.nome + " " + this.sobrenome.join(" ") },
+
+    }
+    let resposta = "s";
+    let nome = prompt("Digite seu nome").trim().toLowerCase();
+    while (!isNaN(nome)) {
+        alert("Digite apenas letras!");
+        nome = prompt("Digite seu nome").trim().toLowerCase();
+    }
+    let sobrenome = prompt("Digite seu sobrenome").trim().toLowerCase();
+    while (!isNaN(sobrenome)) {
+        alert("Digite apenas letras!");
+        sobrenome = prompt("Digite seu sobrenome").trim().toLowerCase();
+    }
+    while (resposta !== "n") {
+        resposta = prompt("Você tem mais algum sobrenome?\n\n(Responda com sim ou não)").trim().charAt().toLowerCase();
+        while (resposta !== "s" && resposta !== "n") {
+            alert("Responda apenas com sim ou não!");
+            resposta = prompt("Você tem mais algum sobrenome?\n\n(Responda com sim ou não)").trim().charAt().toLowerCase();
+        }
+        //PROCESSAMENTO
+        if (resposta === "s") {
+            let outroSobrenome = prompt("Qual seu outro sobrenome").trim().toLowerCase();
+            while (!isNaN(outroSobrenome)) {
+                alert("Responda apenas com letras!");
+                outroSobrenome = prompt("Qual seu outro sobrenome").trim().toLowerCase();
+            }
+            pessoa.sobrenome.push(letraMaiuscula(outroSobrenome));
+        }
+    }
+    pessoa.nome = letraMaiuscula(nome);
+    pessoa.sobrenome.push(letraMaiuscula(sobrenome));
+    //SAÍDA
+    alert(pessoa.nomeCompleto());
+</script>

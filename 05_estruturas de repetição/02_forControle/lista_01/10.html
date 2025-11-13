@@ -1,0 +1,58 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: REPRESENTANTE DE SALA
+    Peça para o programa perguntar ao professor regente o nome dos três candidatos a representante da sala.
+    Peça também para o programa perguntar ao professor regente a quantidade de alunos votantes.
+    Desenvolva um programa que armazene o voto de cada aluno da sala e apresente o resultado da votação, com o quantitativo de votos e também a porcentagem de votos de cada candidato a representante de sala.
+    */
+
+    //ENTRADA
+    let representante1 = prompt("Qual o nome do primeiro candidato?").trim().toLowerCase();
+    while (!isNaN(representante1)) {
+        alert("Escreva apenas usando letras!");
+        representante1 = prompt("Qual o nome do primeiro candidato?").trim().toLowerCase();
+    }
+
+    let representante2 = prompt("Qual o nome do segundo candidato?").trim().toLowerCase();
+    while (!isNaN(representante2)) {
+        alert("Escreva apenas usando letras!");
+        representante2 = prompt("Qual o nome do segundo candidato?").trim().toLowerCase();
+    }
+
+    let representante3 = prompt("Qual o nome do terceiro candidato?").trim().toLowerCase();
+    while (!isNaN(representante3)) {
+        alert("Escreva apenas usando letras!");
+        representante3 = prompt("Qual o nome do terceiro candidato?").trim().toLowerCase();
+    }
+    let quantidade = Number(prompt("Qual a quantidade de alunos votantes?"));
+    while (isNaN(quantidade)) {
+        alert("Escreva usando somente valores numéricos!");
+        quantidade = Number(prompt("Qual a quantidade de alunos votantes?"));
+    }
+    let final1 = 0;
+    let final2 = 0;
+    let final3 = 0;
+    //PROCESSAMENTO
+    for (let i = 0; i < quantidade; i++) {
+        let voto = prompt("Em quem deseja votar?").trim().toLowerCase();
+        while (!isNaN(voto)) {
+            alert("Escreva apenas letras!");
+            voto = prompt("Em quem deseja votar?").trim().toLowerCase();
+        }
+        while (voto !== representante1 && voto !==representante2 && voto !== representante3) {
+            alert("Escolha entre os representantes listados, São eles:\n\n("+representante1+", "+representante2+" ou "+representante3+")");
+            let voto = prompt("Em quem deseja votar?").trim().toLowerCase();
+        }
+            if (voto === representante1) {
+                final1 +=1;
+            } else if (voto === representante2) {
+                final2 +=1;
+            } else {
+                final3 +=1;
+            }}
+    //SAÍDA
+    alert("O representante "+representante1+" terá " +final1+ " votos");
+    alert("O representante "+representante2+" terá " +final2+ " votos");
+    alert("O representante "+representante3+" terá " +final3+ " votos");
+</script>

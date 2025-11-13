@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Fahrenheit para Celsius
+    Peça para o usuário informar uma temperatura em Fahrenheit. Converta e apresente a temperatura em graus Celsius.
+    */
+
+    //ENTRADA
+    let temperatura = Number(prompt("informe quantos graus Fahrenheit esta"));
+    
+    //PROCESSAMENTO
+    temperatura = ((temperatura-32)* (5/9)).toFixed(2);
+    
+    //SAÍDA
+    document.write("está " +temperatura+ " graus celcius");
+</script>

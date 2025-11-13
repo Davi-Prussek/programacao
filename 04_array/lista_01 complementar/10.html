@@ -1,0 +1,76 @@
+<script>
+    /*
+    PROBLEMA: Controle de Estoque Interativo
+    Cenário: Você trabalha em uma loja de poções mágicas. Um cliente comprou o último "Elixir da Coragem" e você precisa removê-lo do sistema de inventário.
+
+    Array Inicial:
+    let inventarioMagico = ["Poção de Cura", "Elixir da Coragem", "Antídoto Universal", "Gás do Sono"];
+    Entrada do Usuário: O programa deve solicitar o nome do item que foi vendido e precisa ser removido.
+
+    Sua Tarefa:
+    Crie uma variável itemVendido para armazenar o nome do item informado.
+    Primeiro, encontre o índice (a posição) do itemVendido no array inventarioMagico.
+    Se o item for encontrado, use seu índice para removê-lo do array.
+    Exiba o inventário atualizado. Se o item não existir, exiba uma mensagem de erro.
+    Exemplo de Entrada do Usuário: Elixir da Coragem
+
+    Resultado esperado:
+    Item 'Elixir da Coragem' removido do estoque.
+    Inventário atual: Poção de Cura, Antídoto Universal, Gás do Sono
+    Exemplo de Entrada do Usuário: Capa da Invisibilidade
+
+    Resultado esperado:
+    Erro: Item 'Capa da Invisibilidade' não encontrado no estoque.
+    */
+
+    //ENTRADA
+    let letra_Maisc_Prep = (nome) => {
+        let preposicao = ["a", "ante", "após", "até", "com", "contra", "de", "desde", "em",
+            "entre", "para", "perante", "por", "sem", "sob", "sobre", "trás", "da", "de", "do"];
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+        for (let i = 0; i < primeiraLetra.length; i++) {
+            let palavraMinuscula = primeiraLetra[i].toLowerCase();
+            if (preposicao.includes(primeiraLetra[i])) {
+                nomeCompletoMaiusculo.push(palavraMinuscula);
+            } else {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome)
+            }
+        };
+        return nomeCompletoMaiusculo.join(" ");
+    };
+
+    let inventarioMagico = ["Poção de Cura", "Elixir da Coragem", "Antídoto Universal", "Gás do Sono"];
+
+    let resposta = "s";
+
+    while (resposta == "s") {
+        let itemVendido = prompt("Qual item foi vendido?\n\nItens em estoque: " + inventarioMagico.join(", ")).trim()
+        let posicao = inventarioMagico.indexOf(letra_Maisc_Prep(itemVendido));
+
+        while (posicao < 0) {
+            alert("O item não existe no estoque");
+            itemVendido = prompt("Qual item foi vendido?\n\nItens em estoque: " + inventarioMagico.join(", ")).trim()
+            posicao = inventarioMagico.indexOf(letra_Maisc_Prep(itemVendido));}
+            
+        //PROCESSAMENTO
+        inventarioMagico.splice(posicao, 1);
+        //SAÍDA
+        if (inventarioMagico.length > 0) {
+            alert("O estoque atual é: " + inventarioMagico.join(" - "));
+            resposta = prompt("Deseja retirar mais algum item do estoque?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt(0);
+            while (resposta !== "s" && resposta !== "n") {
+                alert("Responda somente com sim ou não!");
+                resposta = prompt("Deseja retirar mais algum item do estoque?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt(0);}
+
+        } else if (inventarioMagico.length == 0) {
+            alert("O estoque está completamente vazio agora");
+            resposta == "n";
+            break;}
+
+    }
+</script>

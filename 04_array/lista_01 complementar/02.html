@@ -1,0 +1,37 @@
+<script>
+    /*
+    PROBLEMA: Gerenciando uma Playlist de Músicas
+    Você está criando uma playlist. Comece com algumas músicas e, em seguida, adicione uma nova música ao final da lista e remova a primeira música da playlist.
+
+    Instruções:
+
+    Crie um array chamado playlist com as seguintes músicas: ["Everlong", "The Pretender", "Learn to Fly"].
+    Simule que o usuário adicionou uma nova música, por meio do prompt. Use o método push() para adicionar a música informada pelo usuário ao final do array.
+    Imagine que a primeira música já tocou. Use o método shift() para remover a primeira música do array.
+    Exiba o estado final da playlist no console.
+    Resultado esperado:
+    ["The Pretender", "Learn to Fly", "MUSICA_INFORMADA_PELO_USUARIO"]
+    */
+
+    //ENTRADA
+
+        let letraMaiuscula = (nome) => {
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+    const playlist = ["Everlong", "The Pretender", "Learn to Fly"];
+
+    let musicaNova = prompt("Digite o nome da música nova").trim();
+    //PROCESSAMENTO
+    playlist.push(letraMaiuscula(musicaNova));
+    playlist.shift();
+    //SAÍDA
+    alert(playlist.join(", "));
+</script>

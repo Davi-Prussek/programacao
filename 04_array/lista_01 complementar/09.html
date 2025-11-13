@@ -1,0 +1,41 @@
+<script>
+    /*
+    PROBLEMA: Substituição Tática no Time
+    Cenário: Você é o técnico de um time de e-sports. Durante uma partida, você precisa fazer uma substituição: tirar um jogador e colocar outro no lugar.
+
+    Array Inicial:
+    let timeTitular = ["Phoenix", "Jett", "Sova", "Sage", "Cypher"];
+    Entradas do Usuário: O programa deve solicitar duas informações: o nome do jogador que vai sair e o nome do jogador que vai entrar.
+
+    Sua Tarefa:
+    Crie duas variáveis: jogadorSai e jogadorEntra.
+    Encontre o índice do jogadorSai no array timeTitular.
+    Use um único método de array para remover o jogadorSai e, na mesma posição, adicionar o jogadorEntra.
+    Exiba a escalação final do time.
+    */
+    
+    //ENTRADA
+        let letraMaiuscula = (nome) => {
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+    let timeTitular = ["Phoenix", "Jett", "Sova", "Sage", "Cypher"];
+    let jogadorSair = prompt("Qual jogador irá sair de jogo?\n\nJogadores: "+timeTitular.join(" - ")).trim();
+    while (!timeTitular.includes(letraMaiuscula(jogadorSair))) {
+        alert("Responda apenas um nome existente na lista de jogadores!\n\nJogadores: "+timeTitular.join(" - "));
+        jogadorSair = prompt("Qual jogador irá sair de jogo?\n\nJogadores: "+timeTitular.join(" - ")).trim();
+    }
+    //PROCESSAMENTO
+    let jogadorEntrar = prompt("Qual jogador vai entrar no jogo?").trim();
+    const posicao = timeTitular.indexOf(letraMaiuscula(jogadorSair));
+    timeTitular.splice(posicao, 1, jogadorEntrar);
+    //SAÍDA
+    alert(timeTitular.join(" - "));
+</script>

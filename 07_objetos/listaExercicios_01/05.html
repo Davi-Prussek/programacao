@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: DADOS DO CARRO
+    Crie um objeto chamado carro com as propriedades marca, modelo e ano, e crie um método que retorne a marca, modelo e ano do carro em formato string.
+    */
+    
+    //ENTRADA
+carro = {
+    marca: "",
+    modelo: "",
+    ano: 0,
+    InformaçõesGerais: function() { return "Marca: "+this.marca+"\nModelo: "+this.modelo+"\nAno: "+this.ano}
+}
+
+let marca = prompt("Qual a marca do carro?").trim().toLowerCase();
+while (!isNaN(marca)) {
+    alert("Escreva apenas letras!");
+    marca = prompt("Qual a marca do carro?").trim().toLowerCase();
+};
+let modelo = prompt("Qual o modelo do carro?").trim().toLowerCase();
+while (!isNaN(modelo)) {
+    alert("Escreva apenas letras!");
+    modelo = prompt("Qual o modelo do carro?").trim().toLowerCase();
+};
+let ano = prompt("Qual o ano do carro?");
+while (isNaN(ano)) {
+    alert("Escreva apenas letras!");
+    ano = prompt("Qual o ano do carro?");
+};
+    //PROCESSAMENTO
+carro.marca = marca;
+carro.modelo = modelo;
+carro.ano = ano;
+    //SAÍDA
+alert(carro.InformaçõesGerais());
+</script>

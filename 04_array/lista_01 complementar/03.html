@@ -1,0 +1,29 @@
+<script>
+    /*
+    PROBLEMA: Divisão de Equipes para um Jogo
+    Contexto: Uma lista de jogadores inscritos para um torneio precisa ser dividida em duas equipes, "Time Azul" e "Time Vermelho", com base na ordem de inscrição.
+
+    Tarefa:
+
+    Comece com o array de jogadores: let jogadores = ["Pedro", "Sofia", "Lucas", "Helena", "Gabriel", "Laura"];
+    Crie um novo array chamado timeAzul contendo a primeira metade dos jogadores.
+    Crie um novo array chamado timeVermelho contendo a segunda metade dos jogadores.
+    Importante: O array original jogadores não deve ser modificado.
+    Exiba os dois novos arrays, identificando-os.
+    */
+
+    //ENTRADA
+    let jogadores = ["Pedro", "Sofia", "Lucas", "Helena", "Gabriel", "Laura"];
+    let timeAzul = [];
+    let timeVermelho = [];
+
+    //PROCESSAMENTO
+    const ato1 = jogadores.slice(0, (jogadores.length+1)/2);
+    const ato2 = jogadores.slice((jogadores.length+1)/2, jogadores.length+1);
+    timeAzul.push(ato1);
+    timeVermelho.push(ato2);
+
+    //SAÍDA
+    alert(timeAzul);
+    alert(timeVermelho);
+</script>

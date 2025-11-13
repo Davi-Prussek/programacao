@@ -1,0 +1,87 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: PESQUISA DE IDADE
+    Foi feita uma pesquisa entre os habitantes de uma região. Foram coletados os dados de idade, sexo (M/F) e salário. Faça um programa que calcule e mostre:
+
+
+    a) A média dos salários do grupo;
+    b) A maior e a menor idade do grupo;
+    c) A quantidade de mulheres na região;
+    d) A idade e o sexo da pessoa que possui o menor salário;
+
+    Finalize a entrada de dados ao ser digitada uma idade negativa.
+    */
+
+    //ENTRADA
+
+    //criação de variáveis usadas durante o código:
+
+    //Essa é usada pra controlar o loop
+    let idade = 0;
+    //Variáveis/listas usadas pra cálculo ou pra apresentar certas informações
+    let idades = [];
+    let salarios = [];
+    let generos = [];
+    //Variáveis/listas apresentadas no final do código
+    let generosFeminino = [];
+    let generosMasculino = [];
+    //Início do loop while
+    while (idade >= 0) {
+        idade = Number(prompt("Qual a idade do indivíduo?\n\n(Para encerrar o registro, digite um número negativo)"));
+        //Verificando se idade não é uma letra
+        while (isNaN(idade)) {
+            alert("Digite somente valores numéricos");
+            idade = Number(prompt("Qual a idade do indivíduo?"));}
+        //Parte usada pra encerrar o código e apresentar os resultados quando desejar
+        if (idade < 0) { break; }
+        //Código correr certo
+        else { idades.push(idade); }
+        //Segunda informação para entrar
+        sexo = prompt("Qual o gênero do indivíduo?\n\n(F-Feminino ou M-Masculino)").trim().charAt().toUpperCase();
+        //Verificando se sexo é uma das opções descritas
+        while (sexo !== "F" && sexo !== "M") {
+            alert("Opção inválida!");
+            sexo = prompt("Qual o gênero do indivíduo?\n\n(F-Feminino ou M-Masculino)").trim().charAt().toUpperCase();}
+        //Separando para poder entregar cada lista separadamente
+        switch (sexo) {
+            case "F":
+                generosFeminino.push(sexo);
+                break;
+            case "M":
+                generosMasculino.push(sexo);
+                break;}
+        //Juntando elas para as tres perguntas terem o mesmo tamanho e poder usar o mesmo índice e buscar informações diferentes com índices iguais
+        generos = generosFeminino.concat(generosMasculino);
+        //Terceira informação para entrar
+        salario = Number(prompt("Qual o salário do indivíduo?\n\n(Use ponto ao invés de vírgula)"));
+        //Verificando se salário não é uma letra
+        while (isNaN(salario)) {
+            alert("Digite somente valores numéricos");
+            salario = Number(prompt("Qual o salário do indivíduo?\n\n(Use ponto ao invés de vírgula)"));}
+        //Colocando na lista pra poder fazer a conta depois
+        salarios.push(salario);}
+    //PROCESSAMENTO
+    
+    //Conta pra descobrir o índice do menor salário dentro da lista dos salários
+    const menor = Math.min(...salarios);
+    const menor_i = salarios.indexOf(menor);
+    //Conta pre descobrir a média salarial
+    let j = 0;
+    let soma = 0;
+    while (j < salarios.length) {
+        soma += salarios[j];
+        j++}
+    let media = (soma / j);
+    //Pra descobrir o maior e o menor salário da lista
+    let idadesMaiorMenor = [...idades];
+    idadesMaiorMenor.sort((a, b) => a - b);
+    let idadeMenor = idadesMaiorMenor.shift();
+    let idadeMaior = idadesMaiorMenor.pop();
+    //SAÍDA
+    
+    alert("A média salarial é: " + media.toFixed(2) + " reais");
+    alert("A menor idade informada é: " + idadeMenor + " e a maior idade informada é: " + idadeMaior);
+    alert("A quantidade de mulheres é: " + generosFeminino.length);
+    alert("A idade da pessoa que possui o menor salário é: " + idades[menor_i] + " anos e o gênero da pessoa é: " + generos[menor_i]);
+</script>

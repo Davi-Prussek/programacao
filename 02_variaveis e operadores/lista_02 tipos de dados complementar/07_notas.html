@@ -1,0 +1,20 @@
+
+<meta charset="UTF-8">
+<script>
+    /*
+    Problema: Média das notas do aluno [MÉDIA ARITMÉTICA]
+    Peça para o aluno informar as três notas que obteve em CADAS TRIMESTRE, na disciplina de Programação I. Calcule e apresente a média que o aluno obteve ao final do ano.
+    */
+
+    //ENTRADA
+    const nota1 = Number(prompt("Informe sua nota no primeiro trimestre\n\n(Use ponto ao invés de vírgula)"));
+    const nota2 = Number(prompt("Informe sua nota no segundo trimestre\n\n(Use ponto ao invés de vírgula)"));
+    const nota3 = Number(prompt("Informe sua nota no terceiro trimestre\n\n(Use ponto ao invés de vírgula)"));
+
+    //PROCESSAMENTO
+    let notaTotal = ((nota1 + nota2 + nota3) / 3).toFixed(2);
+    
+    //SAÍDA
+    document.write("A sua nota final será de " +notaTotal+ " pontos" );
+
+</script>

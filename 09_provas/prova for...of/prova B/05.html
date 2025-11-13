@@ -1,0 +1,21 @@
+<script>
+    /*
+    Filtrando Cidades da Lista
+    Considere a seguinte lista de cidades: ["Recife", "Salvador", "Rio de Janeiro", "São Paulo", "Manaus"].
+    Peça para o usuário para digitar uma letra. 
+    Usando for...of, crie um novo array contendo apenas as cidades da lista original que começam com a letra informada pelo usuário.
+    Ao final, exiba o novo array com as cidades que atenderam a condição estabelecida.
+    */
+    const final = [];
+    const cidades = ["Recife", "Salvador", "Rio de Janeiro", "São Paulo", "Manaus"];
+    let letra = prompt("Digite uma letra").trim().toUpperCase();
+    while (!/^[a-zA-Z]+$/.test(letra)) {
+        alert("Escreva apenas letras");
+        letra = prompt("Digite uma letra").trim().toUpperCase();}
+    for (let item of cidades) {
+        if (item.charAt() == letra) {final.push(item);}
+    }
+    if (final.length > 0) {alert("Existem "+final.join(", ")+ " cidade(s) com a letra "+letra)}
+    else {alert("Não existem cidades com essa letra inicial")};
+
+</script>

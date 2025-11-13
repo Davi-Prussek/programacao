@@ -1,0 +1,46 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: REAJUSTE SALARIAL
+    Faça um script que peça para o usuário informar o valor do seu salário.
+    
+    O script deverá calcular e mostrar o valor do aumento e o valor do novo salário.
+    
+    - Considere que, caso seu salário seja menor ou igual a R$ 2.000,00 o reajuste será de 15%.
+    - Caso seja maior que R$ 2.000,00 o reajuste será de 10%.
+    - Ainda, sendo maior que R$ 4.000,00 o reajuste será de 7,5%.
+    - Por fim, caso seja maior que R$ 7.000,00 o reajuste será de 5%.
+    
+    Calcule e apresente o salário final de acordo com o reajuste obtido.
+    */
+
+    //ENTRADA
+let salario = Number(prompt("Informe seu salário\n\n(Use ponto ao ínves de vírgula)"));
+
+let salario2 = 0;
+
+    //PROCESSAMENTO
+if (salario <= 2000) {
+salario2+=((salario*15)/100)
+salario2+=salario;
+alert("Seu novo salário será de:" +salario2+" reais");
+} else if (salario > 2000) {
+salario2+=((salario*10)/100)
+salario2+=salario;
+alert("Seu novo salário será de:" +salario2+" reais");
+} 
+else if (salario > 4000) {
+salario2+=((salario*7.5)/100)
+salario2+=salario;
+alert("Seu novo salário será de:" +salario2+" reais");
+} else if (salario > 7000) {
+salario2+=((salario*5)/100)
+salario2+=salario;
+alert("Seu novo salário será de:" +salario2+" reais");
+} else {
+alert("Coloque apenas valores numéricos");
+}
+    
+    //SAÍDA
+
+</script>

@@ -1,0 +1,31 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: ARRAY EM ORDEM DECRESCENTE
+    Peça para um usuário inserir três números. Crie um array com os três números, colocando-os em ordem decrescente. Para ordenar, NÃO use o método reverse();
+    Retorne os elementos do array, separando-os por hífen (n1 - n2 - n3).
+    */
+
+    //ENTRADA
+let n1 = Number(prompt("Digite um número"));
+while(isNaN(n1)) {
+    alert("Responda apenas com números!");
+    n1 = Number(prompt("Digite um número"));}
+    
+let n2 = Number(prompt("Digite outro número"));
+while(isNaN(n2)) {
+    alert("Responda apenas com números!");
+    n2 = Number(prompt("Digite outro número"));}
+    
+    let n3 = Number(prompt("Digite outro número"));
+while(isNaN(n3)) {
+    alert("Responda apenas com números!");
+    n3 = Number(prompt("Digite outro número"));}
+
+const listaNumeros = [n1, n2, n3];
+    //PROCESSAMENTO
+const listaFinal = listaNumeros.sort((a, b) => b-a);
+
+    //SAÍDA
+alert(listaFinal.join(" - "));
+</script>

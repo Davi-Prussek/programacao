@@ -1,0 +1,17 @@
+<script>
+    /*
+    Usuários Cadastrados
+    Considere a lista de Usuários:
+    usuariosCadastrados = ['admin', 'julia', 'pedro', 'lucas'];
+    Peça para o usuário inserir o seu próprio nome.
+    Valide se o nome inserido pelo usuário consta na lista, retornando para o usuário se ele está cadastrado ou não. 
+    */
+    const usuariosCadastrados = ['admin', 'julia', 'pedro', 'lucas'];
+    const nome = prompt("Insira seu nome");
+    
+    if (usuariosCadastrados.includes(nome)) {
+            alert("Você está cadastrado");
+        } else {
+            alert("Você não está cadastrado");
+        }
+</script>

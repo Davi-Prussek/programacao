@@ -1,0 +1,27 @@
+<meta charset="UTF-8" />
+    <script>
+        /* 
+        PROBLEMA: ÁREA DO TRIÂNGULO Desenvolva um programa que contenha uma função que calcule a área de um triângulo. A fórmula para o cálculo da área de um triângulo é a seguinte: 
+        A = (b * h) / 2 
+        */
+
+        //ENTRADA
+
+        //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+        
+        let b = Number(prompt("Qual a base do triângulo?"));
+        while (isNaN(b)) {
+            alert("Escreva apenas Números!");
+            b = Number(prompt("Qual a base do triângulo?"));}
+            
+        let h = Number(prompt("Qual a altura do triângulo?"));
+        while (isNaN(h)) {
+            alert("Escreva apenas Números!");
+            h = Number(prompt("Qual a base triângulo?"));}
+        //PROCESSAMENTO
+        function triangulo() {
+            let A = (b * h) / 2;
+            document.write("A área de um um triângulo que tem a base de " +b+ " e a altura de " +h+ " vai ser " +A);}
+        //SAÍDA
+        triangulo();
+    </script>

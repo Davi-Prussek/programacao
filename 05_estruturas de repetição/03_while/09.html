@@ -1,0 +1,31 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Acertar o número
+    /*
+    O computador escolhe um número aleatório de 1 a 30, e o usuário precisa adivinhar. O programa dá dicas ("maior" ou "menor") até acertar.
+    */
+
+    //ENTRADA
+    let resultado = 0;
+
+        let indice = (Math.floor(Math.random() * 30) + 1);
+        while (resultado === 0) {
+            let resposta = Number(prompt("ACERTE O NÚMERO ESCONDIDO!\n\nDigite um número de 1 a 30 e tente acertar o valor\n\n(O programa irá dizer se você está mais pra baixo ou mais pra cima)"))
+            while (isNaN(resposta) || resposta === 0 || resposta > 30) {
+                alert("Digite apenas valores numéricos dentro das condições!");
+                resposta = Number(prompt("Digite um número de 1 a 30 e tente acertar o valor\n\n(O programa irá dizer se você está mais pra baixo ou mais pra cima) "))}
+
+    //PROCESSAMENTO && SAÍDA
+            if (resposta !== indice) {
+                if (resposta > indice) {
+                    alert("O número escondido é menor");}
+
+                else if (resposta < indice) {
+                    alert("O número escondido é maior");}}
+
+            else if (resposta === indice) {
+                alert("Parabéns! você acertou!");
+                        break;}}
+
+                alert("Esse código possui uma versão alternativa no github, caso tenha interesse em ver uma versão mais completa, meu github é:\nDavi-Prussek e o nome do repositório é Numero_Misterioso");
+</script>

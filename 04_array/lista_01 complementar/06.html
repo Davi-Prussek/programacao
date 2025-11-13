@@ -1,0 +1,42 @@
+<script>
+    /*
+    PROBLEMA: Validação de Etapas de um Processo
+    Cenário: Um sistema de manufatura registra as etapas concluídas de uma linha de produção em um array. Para que um lote de produção seja aprovado, ele precisa ter passado por exatamente 5 etapas, e uma dessas etapas obrigatoriamente deve ser a "Verificação de Qualidade". Sua tarefa é criar um script que valide um lote.
+
+    Instruções:
+    Crie um array representando as etapas concluídas por um lote.
+    const etapasLoteA = ["Corte", "Montagem", "Pintura", "Verificação de Qualidade", "Embalagem"];
+    Pergunte ao usuário qual a quantidade de etapas do processo produtivo. Crie uma variável booleana c que verifique se o array tem exatamente a quantidade de etapas informada pelo usuário.
+    Crie uma variável booleana passouNaQualidade que verifique se a etapa "Verificação de Qualidade" está incluída no array.
+    Crie uma variável loteAprovado que será true apenas se as duas condições anteriores forem verdadeiras.
+    Exiba o status de aprovação do lote.
+    Resultado esperado:
+    O lote foi aprovado? SIM/NÃO
+    */
+
+    //ENTRADA
+    const etapasLoteA = ["Corte", "Montagem", "Pintura", "Verificação de Qualidade", "Embalagem"];
+    let etapas = Number(prompt("Qual a quantidade de etapas do processo produtivo?"));
+    while(isNaN(etapas)) {
+        alert("Responda apenas valores numéricos!");
+        etapas = Number(prompt("Qual a quantidade de etapas do processo produtivo?"));
+    }
+    let loteAprovado;
+    //PROCESSAMENTO
+    let temNumeroCorretoDeEtapas = (etapasLoteA.length-2 < etapas);
+    let passouNaQualidade = etapasLoteA.includes("Verificação de Qualidade");
+    if (temNumeroCorretoDeEtapas && passouNaQualidade) {
+      loteAprovado = true;  
+    } else {
+      loteAprovado = false;
+    }
+    //SAÍDA
+    switch (loteAprovado) {
+        case true:
+        alert("O lote foi aprovado? SIM");
+        break;
+        case false:
+        alert("O lote foi aprovado? NÃO");
+        break;
+    }
+</script>

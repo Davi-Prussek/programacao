@@ -1,0 +1,113 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ESTAÇÃO DO ANO
+    Faça um script que pergunte para a pessoa em qual hemisfério ela está e qual o mês atual.
+    De acordo com as respostas, informe qual a estação do ano correspondente.
+    */
+
+    //ENTRADA
+let hemisferio = prompt("Qual hemisfério você está?\n\nEx: norte ou sul").toLowerCase();
+while(hemisferio !== "norte" && hemisferio !== "sul") {
+    alert("Responda apenas com as opções descritas");
+    
+}
+let mes = prompt("Qual mês do ano você está?").trim().toLowerCase();
+
+while(mes!=="janeiro"&&mes!=="fevereiro"&&mes!=="março"&&mes!=="abril"&&mes!=="maio"&&mes!=="junho"&&mes!=="julho"&&mes!=="agosto"&& mes!=="setembro"&&mes!=="outubro"&&mes!=="novembro"&&mes!=="dezembro") {
+    alert("Insira um mês válido!");
+mes = prompt("Qual mês do ano você está?").trim().toLowerCase();}
+    //PROCESSAMENTO
+let mes2 = 0;
+switch (mes) {
+case "janeiro":
+mes2 +=1;
+break;
+case "fevereiro":
+mes2 +=2;
+break;
+case "março":
+mes2 +=3;
+break;
+case "abril":
+mes2 +=4;
+break;
+case "maio":
+mes2 +=5;
+break;
+case "junho":
+mes2 +=6;
+break;
+case "julho":
+mes2 +=7;
+break;
+case "agosto":
+mes2 +=8;
+break;
+case "setembro":
+mes2 +=9;
+break;
+case "outubro":
+mes2 +=10;
+break;
+case "novembro":
+mes2 +=11;
+break;
+case "dezembro":
+mes2 +=12;
+break;}
+//SAÍDA
+switch (hemisferio) {
+//hemisfério norte
+case "norte":
+switch (mes2) {
+//primavera
+case 3:
+case 4:
+case 5:
+alert("é primavera");
+break;
+//verão
+case 6:
+case 7:
+case 8:
+alert("é verão");
+break;
+//outono
+case 9:
+case 10:
+case 11:
+alert("É outono");
+break;
+//inverno
+default:
+alert("É inverno");
+break;}
+break;
+//Hemisfério sul 
+case "sul":
+switch (mes2) {
+//outono
+case 3:
+case 4:
+case 5:
+alert("É outono");
+break;
+//inverno
+case 6:
+case 7:
+case 8:
+alert("É inverno");
+break;
+//primavera
+case 9:
+case 10:
+case 11:
+alert("É primavera");
+break;
+//verão
+default:
+alert("É verão");
+break;}
+break;}
+</script>

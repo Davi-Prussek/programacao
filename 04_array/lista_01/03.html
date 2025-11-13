@@ -1,0 +1,65 @@
+<meta charset="UTF-8" />
+<script>
+    /*
+    PROBLEMA: ITENS DA LISTA DE COMPRAS
+    Peça para o usuário inserir 3 frutas para a lista de compras. (Use 3 vezes o prompt).
+    Peça também para o usuário inserir 3 bebidas para a lista de compras (Use outras 3 vezes o prompt).
+    Crie um array para cada tipo de item e, ao fim, apresente os itens da sequinte forma:
+    As frutas a serem compradas são: fruta1, fruta2, fruta3.
+    As bebidas a serem compradas são: bebida1, bebida2, bebida3.
+    A lista completa de compras é: fruta1, fruta2, fruta3, bebida1, bebida2, bebida3.
+    */
+
+    //ENTRADA
+let fruta1 = prompt("Informe o nome de um fruta").trim().toLowerCase();
+while(!isNaN(fruta1)) {
+    alert("Escreva apenas com letras!");
+    fruta1 = prompt("Informe o nome de um fruta").trim().toLowerCase();
+}
+
+let fruta2 = prompt("Informe o nome de outra fruta").trim().toLowerCase();
+while(!isNaN(fruta2)) {
+    alert("Escreva apenas com letras!");
+    fruta2 = prompt("Informe o nome de outra fruta").trim().toLowerCase();
+}
+
+let fruta3 = prompt("Informe o nome de mais uma fruta").trim().toLowerCase();
+while(!isNaN(fruta3)) {
+    alert("Escreva apenas com letras!");
+    fruta3 = prompt("Informe o nome de mais uma fruta").trim().toLowerCase();
+}
+
+let bebida1 = prompt("Informe o nome de uma bebida").trim().toLowerCase();
+while(!isNaN(bebida1)) {
+    alert("Escreva apenas com letras!");
+    bebida1 = prompt("Informe o nome de uma bebida").trim().toLowerCase();
+}
+
+let bebida2 = prompt("Informe o nome de outra bebida").trim().toLowerCase();
+while(!isNaN(bebida2)) {
+    alert("Escreva apenas com letras!");
+    bebida1 = prompt("Informe o nome de outra bebida").trim().toLowerCase();
+}
+
+let bebida3 = prompt("Informe o nome de uma terceira bebida").trim().toLowerCase();
+while(!isNaN(bebida3)) {
+    alert("Escreva apenas com letras!");
+    bebida1 = prompt("Informe o nome de uma terceira bebida").trim().toLowerCase();
+}
+
+
+    //PROCESSAMENTO
+
+const Frutas = [fruta1, fruta2, fruta3];
+
+const Bebidas = [bebida1, bebida2, bebida3];
+
+const Final = Frutas.concat(Bebidas);
+
+    //SAÍDA
+
+alert("As frutas a serem compradas são: " +Frutas.join(" - "));
+alert("As bebidas a serem compradas são: " +Bebidas.join(" - "));
+alert("A lista completa de compras é: " +Final.join(" - "));
+
+</script>

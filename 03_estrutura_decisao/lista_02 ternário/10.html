@@ -1,0 +1,67 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: BALANÇO FINANCEIRO
+    Faça um script que peça para o usuário informar as despesas relacionadas com:
+    - Conta de água
+    - Conta de energia elétrica
+    - Conta de telefone
+    - Supermercado
+    Também peça para o usuário informar o valor que recebe de remuneração mensal (salário), proveniente da sua atuação profissional.
+    Verifique se o usuário ganha mais do que recebe e apresente em tela, indicando quanto que sobrou após o pagamento das contas ou quanto que faltou para poder pagar todas as contas previstas.
+    */
+
+    //ENTRADA
+    //parte I
+let conta1 = Number(prompt("Qual é a sua despesa com contas de água?"));
+
+while(isNaN(conta1) || conta1 <= 0) {
+  alert("Insira apenas valores numéricos maiores que zero");
+  conta1 = Number(prompt("Qual é a sua despesa com contas de água?"));
+}
+
+//parte II
+let conta2 = Number(prompt("Qual é a sua despesa com contas de energia elétrica?"));
+
+while(isNaN(conta2) || conta2 <= 0) {
+  alert("Insira apenas valores numéricos maiores que zero");
+  conta2 = Number(prompt("Qual é a sua despesa com contas de energia elétrica?"));
+
+}
+
+//parte III
+let conta3 = Number(prompt("Qual é a sua despesa com contas de telefone?"));
+
+while(isNaN(conta3)) {
+  alert("Insira apenas valores numéricos maiores que zero");
+  conta3 = Number(prompt("Qual é a sua despesa com contas de telefone?"));
+}
+
+//parte IV
+let conta4 = Number(prompt("Qual é a sua despesa com contas de supermercado?"));
+
+while(isNaN(conta4)) {
+  alert("Insira apenas valores numéricos maiores que zero");
+  conta4 = Number(prompt("Qual é a sua despesa com contas de supermercado?"));
+}
+
+//parte V
+let salario = Number(prompt("Qual seu salário"));
+
+while (isNaN(salario) || salario <= 0) {
+  alert("Insira apenas valores numéricos maiores que zero");
+salario = Number(prompt("Qual seu salário"));
+}
+
+//contas
+const despesa = (conta1+conta2+conta3+conta4);
+
+//PROCESSAMENTO
+(salario > despesa) ? alert("Após pagar suas contas, vai sobrar " +(salario-despesa).toFixed(2)+" reais")
+:(salario < despesa) ? alert("Faltam " +(despesa-salario).toFixed(2)+" reais para pagar todas suas contas")
+:alert("Não vai sobrar nada");
+
+
+    //SAÍDA
+
+</script>

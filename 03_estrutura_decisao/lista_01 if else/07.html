@@ -1,0 +1,61 @@
+<script>
+    /*
+    PROBLEMA: CAIXA ELETRÔNICO
+    Faça um script para um caixa eletrônico. O script deverá perguntar ao usuário a valor do saque e depois informar quantas notas de cada valor serão fornecidas. As notas disponíveis serão as de 1, 5, 10, 50 e 100 reais. O valor mínimo é de 10 reais e o máximo de 600 reais. O script não deve se preocupar com a quantidade de notas exi nostentes na máquina.
+
+    Exemplo: Para sacar a quantia de 256 reais, o script fornece duas notas de 100, uma nota de 50, uma nota de 5 e uma nota de 1;
+    Exemplo: Para sacar a quantia de 399 reais, o script fornece três notas de 100, uma nota de 50, quatro notas de 10, uma nota de 5 e quatro notas de 1.
+    */
+
+    //ENTRADA
+const valor = Number(prompt("Quanto você deseja sacar?"));
+//PROCESSAMENTO
+let notaC = 100;
+let notaL = 50;
+let notaX = 10;
+let notaV = 5;
+let moeda = 1;
+
+let notas100 = Math.floor (valor/notaC);
+let notas50 = Math.floor ((valor%notaC)/notaL);
+let notas10 = Math.floor (((valor%notaC)%notaL)/notaX);
+let notas5 = Math.floor ((((valor%notaC)%notaL)%notaX)/notaV);
+let moeda1 = ((((valor%notaC)%notaL)%notaX)%notaV);
+
+
+//SAÍDA
+
+if (valor > 10 && valor < 600) {
+  alert("Você vai receber: ");
+  if (notas100>1) {
+    alert(notas100+ " Notas de 100,00 reais");
+  } else if (notas100>0) {
+    alert(notas100+ " Nota de 100,00 reais");
+  }
+
+  if (notas50>1) {
+    alert(notas50+ " Notas de 50,00 reais");
+  } else if (notas50>0) {
+    alert(notas50+ " Nota de 50,00 reais");
+  }
+
+if (notas10>1) {
+    alert(notas10+ " Notas de 10,00 reais");
+  } else if (notas10>0) {
+    alert(notas10+ " Nota de 10,00 reais");
+  }
+
+if (notas5>1) {
+    alert(notas5+ " Notas de 5,00 reais");
+  } else if (notas5>0) {
+    alert(notas5+ " Nota de 5,00 reais");
+  }
+
+if (moeda1 >1) {
+    alert(moeda1+ " moedas de 1,00 real");
+  } else if (moeda1>0) {
+    alert(moeda1+ " moeda de 1,00 real");
+  }
+}
+
+</script>

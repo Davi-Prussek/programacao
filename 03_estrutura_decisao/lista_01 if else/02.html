@@ -1,0 +1,32 @@
+<script>
+    /*
+    PROBLEMA: ORDEM DECRESCENTE
+    Faça um script que leia três números e mostre-os em ordem decrescente.
+    */
+
+    //ENTRADA
+    let n1 = Number(prompt("digite um número"));
+    let n2 = Number(prompt("digite um número"));
+    let n3 = Number(prompt("digite um número"));
+    //PROCESSAMENTO
+    if ((n1 > n2)&&(n2 > n3)) {
+        alert("A sequência é " +n1+ ", " +n2+ ", " +n3 )
+    } else if ((n1 > n3)&&(n3 > n2)) {
+        alert("A sequência é " +n1+ ", " +n3+ ", " +n2 )
+    } else if ((n2 > n3)&&(n3 > n1)) {
+        alert("A sequência é " +n2+ ", " +n3+ ", " +n1 )
+    } else if ((n2 > n1)&&(n1 > n3)) {
+        alert("A sequência é " +n2+ ", " +n1+ ", " +n3 )
+    } else if ((n3 > n1)&&(n1 > n2)) {
+        alert("A sequência é " +n3+ ", " +n1+ ", " +n2 )
+    } else if ((n3 > n2)&&(n2 > n1)) {
+        alert("A sequência é " +n3+ ", " +n2+ ", " +n1 )
+    } else if ((n1 > n3)&&(n3 > n2)) {
+        alert("A sequência é " +n1+ ", " +n3+ ", " +n2 )
+    } else {
+        alert("Coloque três NÚMEROS diferentes")
+    }
+
+    //SAÍDA
+    
+</script>

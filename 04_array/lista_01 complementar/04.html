@@ -1,0 +1,59 @@
+<script>
+    /*
+    PROBLEMA: Ingrediente Secreto
+    Você está criando uma receita e precisa verificar duas coisas: se um "Ingrediente Secreto" está na sua lista de ingredientes e, se estiver, qual a sua posição para que você possa adicioná-lo no momento certo.
+
+    Tarefa:
+    Comece com o array: let ingredientes = ["Farinha", "Açúcar", "Ovos", "Sal", "Chocolate"];
+    Pergunte para o usuário se existe algum ingrediente secreto e qual é o ingrediente secreto.
+    Crie uma variável chamada posicaoIngrediente que identifique e armazene a posição do Ingrediente Secreto no array, segundo o ingrediente informado pelo usuário (caso exista).
+    Resultado esperado:
+
+    A receita contém o Ingrediente Secreto? SIM/NÃO
+    Posição do Ingrediente Secreto: POSIÇÃO DO INGREDIENTE NO ARRAY
+
+    */
+
+    //ENTRADA
+
+            let letraMaiuscula = (nome) => {
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+    let ingredientes = ["Farinha", "Açúcar", "Ovos", "Sal", "Chocolate"];
+
+    let ingredienteSecreto;
+    let posicao;
+
+    let secreto = prompt("A receita contém o Ingrediente Secreto? \n\n(S-Sim ou N-Não)").trim().charAt().toLowerCase();
+    while (secreto !== "s" && secreto !== "n") {
+        alert("Responda apenas sim ou não!");
+        secreto = prompt("A receita contém o Ingrediente Secreto? \n\n(S-Sim ou N-Não)").trim().charAt().toLowerCase();
+    }
+    if (secreto == "s") {
+        ingredienteSecreto = prompt("Qual é o Ingrediente Secreto?").trim();
+        posicao = ingredientes.indexOf(letraMaiuscula(ingredienteSecreto));
+        while (posicao == -1) {
+            alert("A receita contém o Ingrediente Secreto? NÃO\nPosição do Ingrediente Secreto: inexistente");
+            ingredienteSecreto = prompt("Qual é o Ingrediente Secreto?").trim();
+            posicao = ingredientes.indexOf(letraMaiuscula(ingredienteSecreto));
+        }
+        if (posicao >= 0) {
+            alert("A receita contém o Ingrediente Secreto? SIM\nPosição do Ingrediente Secreto: "+posicao+1);
+        }
+    } else {
+        alert("Ok, tudo bem");
+    }
+    //PROCESSAMENTO
+
+
+    //SAÍDA
+    
+</script>

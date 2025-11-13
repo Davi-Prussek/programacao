@@ -1,0 +1,95 @@
+<script>    /*
+PROBLEMA: DESCONTO COMBUSTÍVEL
+Um posto está vendendo combustíveis com a seguinte tabela de descontos:
+Álcool:
+- até 20 litros, desconto de 3% por litro
+- acima de 20 litros, desconto de 5% por litro
+
+Gasolina:
+- até 20 litros, desconto de 4% por litro
+- acima de 20 litros, desconto de 6% por litro
+ 
+Escreva um algoritmo que leia o número de litros vendidos, o tipo de combustível (codificado da seguinte forma: A-álcool, G-gasolina), calcule e imprima o valor a ser pago pelo cliente sabendo-se que o preço do litro da gasolina é R$ 6,50 o preço do litro do álcool é R$ 6,10.
+*/
+
+    //ENTRADA
+    const tipos = prompt("Qual tipo de gasolina você deseja?\n\n(Use A para álcool, G para gasolina e AG para álcool e gasolina");
+
+    const gasolina = 6.50;
+    const alcool = 6.10;
+
+    let total = 0;
+    let total2 = 0;
+    let dupla = 0;
+
+    //PROCESSAMENTO
+
+
+
+    //alcool
+
+    if (tipos == "A") {
+        const litro = Number(prompt("Quantos litros você quer?"));
+        if (litro > 20) {
+            total = litro * alcool;
+            total -= ((total * 5)/100);
+
+        } else if (litro <= 20) {
+            total = litro * alcool;
+            total -= ((total * 3)/100);
+
+            alert("Você ira pagar: " + total.toFixed(2) + " reais");
+        }
+
+
+        //gasolina
+
+    } else if (tipos == "G") {
+        const litro = Number(prompt("Quantos litros você quer?"));
+        if (litro > 20) {
+            total2 = litro * gasolina;
+            total2 -= ((total2 * 6) / 100);
+
+        } else if (litro <= 20) {
+            total2 = litro * gasolina;
+            total2 -= ((total2 * 4) / 100);
+            alert("Você ira pagar: " + total2.toFixed(2) + " reais");
+        }
+
+        //alcool && gasolina 
+
+    } else if (tipos == "AG") {
+
+        //perguntas
+
+        const litroA = Number(prompt("Quantos litros de álcool você quer?"));
+        const litroG = Number(prompt("Quantos litros de gasolina você quer?"));
+
+        let total1 = litroA * alcool;
+        let total2 = litroG * gasolina;
+
+
+        //cálculo A
+        if (litroA > 20) {
+            total1 -=((total1 * 5) / 100);
+
+        } else if (litroA <= 20) {
+            total1 -=((total1 * 3) / 100);
+        }
+        //cálculo G
+        if (litroG > 20) {
+            total2 -=((total2 * 6) / 100);
+
+        } else if (litroG <= 20) {
+            total2 -=((total2 * 4) / 100);
+        }
+
+        //cálculo AG
+        dupla = total1 + total2;;
+        alert("Você ira pagar: " + dupla.toFixed(2) + " reais");
+    } else {
+    alert("insira um tipo de gasolina citado nos parênteses");
+    }
+    //SAÍDA
+
+</script>

@@ -1,0 +1,58 @@
+    <meta charset="UTF-8">
+    <script>
+        /*
+        PROBLEMA: DADOS DO CLIENTE
+        Crie um objeto chamado cliente com as propriedades nome, idade, email, e crie um método que retorne o nome, idade e email do cliente em formato string.
+        */
+
+        //ENTRADA
+
+          let letraMaiuscula = (nome) => {
+            let nomeComeco;
+            let restoNome;
+            let nomeCompletoMaiusculo = [];
+            let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+            return nomeCompletoMaiusculo.join(" ");};
+
+        let cliente = {
+                    nome: "",
+                    idade: 0,
+                    email: "",
+                    CPF: "",
+                    informações: function () { return "Nome: " + this.nome + "\nIdade: " + this.idade + "\nEmail: " + this.email}}
+
+                let nome = prompt("Digite seu nome completo");
+                    nome = nome.trim().toLowerCase();
+                while (!/^[a-zA-Z\s]+$/.test(nome)) {
+                    alert("Digite apenas letras!");
+                    nome = prompt("Digite seu nome").trim().toLowerCase();
+                }
+
+                let idade = Number(prompt("Digite sua idade"));
+                while (isNaN(idade)) {
+                    alert("Digite apenas valores numéricos!");
+                    idade = Number(prompt("Digite sua idade"));
+                }
+
+                let email = prompt("Digite seu email");
+                while (!email.includes("@")) {
+                    email = email.trim();
+                    alert("Digite um email válido!");
+                    email = prompt("Digite seu email").trim();
+                }
+
+        //PROCESSAMENTO
+
+                cliente.nome = letraMaiuscula(nome);
+                cliente.idade = idade;
+                cliente.email = email;
+        //SAÍDA
+                alert(cliente.informações());
+                
+                alert("Esse código possui uma versão alternativa no github, caso tenha interesse em ver uma versão mais completa, meu github é:\nDavi-Prussek e o nome do repositório é Registro_De_Clientes");
+    </script>
+</html>

@@ -1,0 +1,20 @@
+<script>
+      let maiuscula = (nome) => {
+            let nomeComeco = nome.charAt(0)
+            let restoNome = nome.substring(1);
+            return nome = nomeComeco.toUpperCase() + restoNome;};
+const nomes = ["Ana", "Carlos", "Beatriz", "Ivo", "Fernanda", "Eder"];
+
+const final = [];
+
+let novo = prompt("Digite um novo nome para entrar na lista").trim();
+
+nomes.push(maiuscula(novo))
+
+for (let item of nomes) {
+if (item.length < 5) {
+final.push(item);
+}
+}
+alert(final.join(", "));
+</script>

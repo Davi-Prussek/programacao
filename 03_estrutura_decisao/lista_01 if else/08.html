@@ -1,0 +1,38 @@
+<script>
+    /*
+    PROBLEMA: TESTA LADOS DE TRIÂNGULO
+    Receba os três lados de um triângulo. Informe se os valores podem ser um triângulo. Indique, caso os lados formem um triângulo, se o mesmo é: equilátero, isósceles ou escaleno. Dica: pesquise sobre a regra para saber se os lados formam um triângulo e também sobre os tipos de triângulos.
+    */    
+   
+    //ENTRADA
+let l1 = Number(prompt("Qual o tamanho da primeira medida?"));
+let l2 = Number(prompt("Qual o tamanho da segunda medida?"));
+let l3 = Number(prompt("Qual o tamanho da terceira medida?"));    
+    //PROCESSAMENTO
+if (l1 > 0 && l2 > 0 && l3 > 0 && ((l1 + l2 > l3) || (l2 + l3 > l1) || (l3 + l1 > l2))) {
+
+//equilátero
+    if (l1 == l2 && l2 == l3) {
+alert("O triângulo é equilátero");
+    }
+//isósceles
+else if ((l1 == l2 && l2 != l3) || (l1 == l3 && l3 != l2) || (l2 == l3 && l3 != l1)) {
+alert("O triângulo é isósceles");
+} 
+//escaleno
+else if ((l1 != l2 && l2 != l3)) {
+alert("O triângulo é escaleno");
+}
+//Código caso a verificação der false
+
+
+} else if (l1 < 1 || l2 < 1 || l3 < 1){
+    alert("Para ser triângulo todos os valores tem que ser maior que zero");
+
+} else if ((Number !== l1) || (Number !== l2) || (Number !== l3)) {
+alert("Insira apenas números");
+
+} 
+   //SAÍDA
+
+</script>

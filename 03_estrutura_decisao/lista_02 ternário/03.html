@@ -1,0 +1,17 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: MAIOR DE DOIS NÚMEROS
+    Construa um algoritmo que leia dois números inteiros. Verifique qual dos dois números é maior e o escreva.
+    */
+
+    //ENTRADA
+const n1 = Number(prompt("Qual o primeiro número?"));
+const n2 = Number(prompt("Qual o segundo número?"));
+    //PROCESSAMENTO && //SAÍDA
+
+(isNaN(n1) || isNaN(n2)) ? alert("Escreva apenas números")
+:(n1 > n2) ? alert("O primeiro número é maior") 
+:(n2 > n1) ? alert("O segundo número é maior") 
+:alert("Os dois números são iguais");
+</script>

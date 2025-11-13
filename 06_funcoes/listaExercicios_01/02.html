@@ -1,0 +1,39 @@
+<script>
+  /*
+    PROBLEMA: CALCULAR CUBO DE UM NÚMERO
+    Peça para o usuário informar um número inteiro.
+    Desenvolva um programa que contenha uma função que calcule o cubo desse número. Apresente o resultado para o usuário.
+    */
+
+  //ENTRADA
+
+  //CARA, SEMPRE CHAME A FUNÇÃO, NUNCA ESQUEÇA DISSO PARA EVITAR 30 MINUTOS DE DOR DE CABEÇA DE FORMA BURRA
+  
+  numero = Number(prompt("Qual número você deseja potenciar?"));
+  while (isNaN(numero)) {
+    alert("Responda apenas com números!");
+    numero = Number(prompt("Qual número você deseja potenciar?"));}
+
+  let potencia;
+
+  let pergunta = prompt("Qual versão do programa deseja realizar?\n\n(Responda com cubo ou outra)").trim().charAt().toLowerCase();
+  while (pergunta !== "c" && pergunta !== "o") {
+    alert("Digite apenas uma das opções citadas!");
+    pergunta = prompt("Qual potência deseja realizar?\n\n(Responda com cubo ou outra)").trim().charAt().toLowerCase();}
+  switch (pergunta) {
+    case "c":
+      potencia = 3;
+      break;
+    case "o":
+      potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));
+      while (isNaN(potencia)) {
+        alert("Responda apenas com números!");
+        potencia = Number(prompt("Você quer elevar a qual potência?\n\nSó escreva o número, sem o símbolo de potência"));}
+      break;}
+
+  //PROCESSAMENTO
+  function execucao() {
+    return (numero **= potencia);}
+  //Saída
+  alert("O resultado é " + execucao());
+</script>

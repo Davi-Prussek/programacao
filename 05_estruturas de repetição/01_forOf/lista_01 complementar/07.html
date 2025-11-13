@@ -1,0 +1,30 @@
+<script>
+    //Problema: Cor Preferida
+    /*
+    Considere a seguinte lista de cores:
+    let cores = ["Branco", "Azul", "Marrom", "Cinza", "Verde", "Amarelo", "Vermelho", "Preto"];
+    Pergunte ao usuário qual das cores da lista que ele gosta.
+    Apresente as cores preferidas e a quantidade de cores que o usuário gosta.
+    */
+
+    //Entrada
+    const func_maisc = (nome) => {
+        let comeco = nome.charAt(0);
+        let final = nome.substring(1);
+        return comeco.toUpperCase() + final;}
+    const favoritas = [];
+    let cores = ["Branco", "Azul", "Marrom", "Cinza", "Verde", "Amarelo", "Vermelho", "Preto"];
+    for (let item of cores) {
+    let gosta = func_maisc(prompt(cores.join(", ")+"\n\nQual das cores da lista acima você gosta?"));
+    while (!cores.includes(gosta)) {
+        alert("Digite somente alguma das cores citadas acima, por favor");
+        gosta = func_maisc(prompt(cores.join(", ")+"\n\nQual das cores da lista acima você gosta?"));
+    };
+    favoritas.push(gosta);   
+    }
+    //Processamento
+
+
+    //Saída
+    alert(favoritas.join(", "));
+</script>

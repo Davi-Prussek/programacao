@@ -1,0 +1,24 @@
+<script>
+const idades = [15, 17, 19, 52, 14, 25];
+const maioridade = [];
+
+let pergunta = Number(prompt("Qual sua idade?"));
+
+while(isNaN(pergunta)) {
+alert("Digite apenas valores numericos!");
+pergunta = Number(prompt("Qual sua idade?"));
+}
+idades.push(pergunta);
+
+for (let item of idades) {
+if (item >= 18) {
+maioridade.push(item);
+}
+}
+for (let item of maioridade) {
+if (item >= 90) {
+alert("Dinossauro");
+}
+}
+alert("A lista das idades que já sao de maior, é: "+maioridade.join(", "));
+</script>

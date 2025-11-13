@@ -1,0 +1,74 @@
+    <meta charset="UTF-8">
+    <script>
+        /*
+        PROBLEMA: DADOS DO FUNCIONÁRIO
+        Crie um objeto chamado funcionario com as propriedades nome, cargo, salario, e crie um método que retorne o nome, cargo e salario do funcionário em formato string.
+        */
+
+    //ENTRADA && PROCESSAMENTO
+        
+        let letraMaiuscula = (nome) => {
+                let nomeComeco;
+                let restoNome;
+                let nomeCompletoMaiusculo = [];
+                let primeiraLetra = nome.split(" ");
+                for (let i = 0; i < primeiraLetra.length; i++) {
+                    nomeComeco = primeiraLetra[i].charAt(0);
+                    restoNome = primeiraLetra[i].substring(1);
+                    nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+                return nomeCompletoMaiusculo.join(" ");};
+
+        let exibirNomes = () => {
+            const exibir = listaDeFuncionarios.map(funcionario => funcionario.nome).sort();
+            return exibir.join(", ");}
+
+        let repetir = "s";
+        let listaDeFuncionarios = [];
+
+        while (repetir === "s") {
+            let funcionario = {
+            nome: "",
+            cargo: "",
+            salario: "",
+            informaçõesGerais: function info(){ return "Nome: "+this.nome+"\n\nCargo: "+this.cargo+"\nSalário: "+this.salario}}
+
+        let nome = prompt("Digite o seu nome").trim().toLowerCase();
+        while(!/[a-zA-Z]/.test(nome)) {
+            alert("Digite apenas letras!");
+            nome = prompt("Digite o seu nome").trim().toLowerCase();}
+
+        let cargo = prompt("Digite o cargo que você ocupa").trim().toLowerCase();
+        while(!/[a-zA-Z]/.test(nome)) {
+            alert("Digite apenas letras!");
+            cargo = prompt("Digite o cargo que você ocupa").trim().toLowerCase();}
+
+        let salario = Number(prompt("Digite seu salário"));
+        while(isNaN(salario)) {
+            alert("Responda apenas com valores numéricos!");
+            salario = Number(prompt("Digite seu salário"));}
+
+        funcionario.nome = letraMaiuscula(nome);
+        funcionario.cargo = cargo;
+        funcionario.salario = salario.toFixed(2)+" reais";
+
+        listaDeFuncionarios.push(funcionario);
+        repetir = prompt("Deseja adicionar mais algum funcionário?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();
+        while (repetir !== "s" && repetir !== "n") {
+            alert("Responda somente com sim ou não!");
+            repetir = prompt("Deseja adicionar mais algum funcionário?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();}}
+
+        //SAÍDA
+    let desejar = "s";
+
+        while (desejar === "s") {
+    let resultado = prompt("Qual funcionário deseja ver as informacões:\n\n("+exibirNomes()+")")
+    
+        while (!listaDeFuncionarios.find(funcionario => funcionario.nome === letraMaiuscula(resultado))) {
+            alert("Responda apenas funcionários existentes!");
+            resultado = prompt("Qual funcionário deseja ver as informacões:\n\n("+exibirNomes()+")");}
+            
+    let saida = listaDeFuncionarios.find(funcionario => funcionario.nome === letraMaiuscula(resultado));
+    alert(saida.informaçõesGerais());
+
+    desejar = prompt("Deseja ver as informações de mais algum funcionário?\n\n(S-Sim ou N-Não)").trim().toLowerCase().charAt();}
+    </script>

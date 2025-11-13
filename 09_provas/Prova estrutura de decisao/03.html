@@ -1,0 +1,22 @@
+<script>
+
+const filme = prompt("Qual o tipo do filme\n\n(lancamento ou comum)");
+
+let preco = 0;
+
+const dias = Number(prompt("Quantos dias de locacao"));
+
+if (filme == "lancamento" || filme == "lançamento") {
+preco = 5*dias;
+} else if (filme == "comum") {
+preco = 3*dias;
+} else {
+alert("Tipo de filme inválido");
+}
+
+if (dias >= 3 && filme == "comum") {
+preco = preco - preco*0.1;
+}
+alert("O filme vai custar R$"+preco.toFixed(2));
+
+</script>

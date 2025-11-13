@@ -1,0 +1,18 @@
+<script>
+    //Problema:
+    /*
+    Considere a seguinte lista de itens:
+    let lista = ['arara', 'para', 'radar', 'tomate', 'osso', 'ana', 'casa', 'ovo'];
+    Verifique quais itens da  lista são palíndromos e retorne a lista com os palíndromos encontrados. Os demais devem ser desconsiderados.
+    */
+
+    //ENTRADA
+    let lista = ['arara', 'para', 'radar', 'tomate', 'osso', 'ana', 'casa', 'ovo'];
+    const final = [];
+    //PROCESSAMENTO
+    for (let item of lista) {
+        if (item.split("").reverse().join("") == item) {
+            final.push(item);}}
+    //SAÍDA
+    alert("Os itens da lista: ("+lista.join(", ")+") que são palíndromos, são os seguintes: \n\n("+final.join(", ")+")");
+</script>

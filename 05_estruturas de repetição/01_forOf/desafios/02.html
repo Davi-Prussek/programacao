@@ -1,0 +1,24 @@
+    <script>
+/*         /*
+        Problema: Corrida
+        Considere que uma pessoa correu as seguintes distâncias:
+        let distancias = [1400, 1200, 2600, 800, 800, 400];
+        Leia a lista de distâncias e some a distância total que a pessoa correu. Considere que a pessoa demorou duas horas para correr a distância somada. Calcule qual foi a distância total percorrida e a distância que a pessoa percorreu por hora. */
+
+        
+
+        //Entrada
+        let distancias = [1400, 1200, 2600, 800, 800, 400];
+        let final = 0;
+        const tempo = 2;
+        //Processamento
+        for (let item of distancias) {
+            final += item;        
+        }
+        //Saída
+        alert("A distância total percorrida pela pessoa foi de "+final+"m, ou "+final/1000+"km\n\nJá a velocidade é de:\n\n"+final/(tempo*60*60)+"m/s\n"+final/(tempo*60)+"m/min\n"+final/tempo+"m/h");
+
+        //A pessoa percorreu 7200 metros em duas horas. Portanto percorreu 3600 metros por hora.
+        
+        //Aqui tem uma versão mais legal desta atividade: https://github.com/Davi-Prussek/Calculadora-MRU.git
+    </script>

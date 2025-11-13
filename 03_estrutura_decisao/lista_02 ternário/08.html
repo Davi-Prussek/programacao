@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: MEIO DE TRANSPORTE MAIS BARATO
+    Faça um script que peça para o usuário informar o preço do litro do combustível e a quantidade de litros utilizados para se deslocar para o trabalho diariamente.
+    Peça também ao programa para o usuário informar o preço do transporte público que deverá pagar para se deslocar ao trabalho diariamente.
+    Verifique qual é o meio de transporte mais barato e apresente em tela, especificando quanto custará para ir e voltar do trabalho diariamente.
+    */
+
+    //ENTRADA
+
+    //parte I
+let combustivel = Number(prompt("Qual o preço do combustível?"));
+
+while(isNaN(combustivel) || combustivel <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
+  combustivel = Number(prompt("Qual o preço do combustível?"));
+}
+
+//parte II
+let litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
+
+while(isNaN(litro) || litro <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
+  litro = Number(prompt("Quantos litros você gasta pra ir e voltar do trabalho diariamente?"));
+}
+
+//parte III
+let publico = Number(prompt("Qual o preço do transporte público?"));
+
+while(isNaN(publico) || publico <= 0) {
+  alert("Escreva apenas valores numéricos maiores que zero");
+  publico = Number(prompt("Qual o preço do transporte público?"));
+}
+
+    //PROCESSAMENTO
+
+  //Cálculo
+  const carro = combustivel*litro;
+
+    //SAÍDA
+    
+ (publico > carro) ?
+ alert("Ir com veículo próprio é mais barato, fica " +(carro).toFixed(2)+ " reais, e " +(publico - carro).toFixed(2)+" reais mais barato que usar transporte público") 
+ 
+:(carro > publico) ?
+ alert("Transporte Público é mais barato, fica " +(publico).toFixed(2)+ " reais, e " +(carro - publico).toFixed(2)+ " reais mais barato que usar veículo próprio") 
+ 
+:alert("Os dois custam o mesmo valor de "+(publico).toFixed(2)+" reais");
+</script>

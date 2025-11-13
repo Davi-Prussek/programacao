@@ -1,0 +1,23 @@
+<script>
+    /*
+    Contador de Nomes Curtos
+    Dado o array de nomes: ["Ana", "Carlos", "Beatriz", "Ivo", "Fernanda", "Eder"].
+    Peça ao usuário para inserir um novo nome no array. 
+    Em seguida, utilizando for...of, conte quantos nomes na lista possuem menos de 5 caracteres. 
+    Apresente para o usuário qual o número total de nomes curtos encontrados.
+    */
+const letra_maisc = (nome) => {
+    let comeco = nome.charAt(0);
+    let final = nome.substring(1);
+    return comeco.toUpperCase() + final;
+}
+const nomeCurto = ["Ana", "Carlos", "Beatriz", "Ivo", "Fernanda", "Eder"];
+const listaFinal = [];
+nomeCurto.push(letra_maisc(nome = prompt("Digite um nome").trim()));
+for (let item of nomeCurto) {
+    if (item.length < 5) {
+        listaFinal.push(item);
+    }
+}
+alert("Essa lista de nomes grandes tem "+listaFinal.join(", ")+" nomes")
+</script>

@@ -1,0 +1,31 @@
+<script>
+    /*
+    PROBLEMA: Gerenciando Documentos Confidenciais
+    Cenário: Você trabalha para uma agência de segurança e precisa manipular uma lista de códigos de acesso a documentos. A lista original não pode ser alterada. Sua tarefa é criar uma cópia "pública" de uma parte da lista e, em uma segunda etapa, criar uma versão "atualizada" onde um código antigo é substituído por um novo.
+
+    Instruções:
+    const codigosDeAcesso = ["Delta-7", "Alpha-9", "Omega-3", "Gama-4", "Zeta-1"];
+    Crie uma cópia "pública" contendo apenas do segundo ao quarto código. A lista original deve permanecer intacta.
+    Crie uma nova lista, codigosAtualizados, que seja uma cópia exata da original.
+    Na lista codigosAtualizados, substitua o código "Omega-3" pelo novo código "Sigma-5".
+    Exiba a lista original, a lista pública e a lista atualizada para verificar as operações.
+    Resultado esperado:
+    Lista Original: Delta-7,Alpha-9,Omega-3,Gama-4,Zeta-1
+    Lista Pública: Alpha-9,Omega-3,Gama-4
+    Lista Atualizada: Delta-7,Alpha-9,Sigma-5,Gama-4,Zeta-1
+
+    */
+
+    //ENTRADA
+    const codigosDeAcesso = ["Delta-7", "Alpha-9", "Omega-3", "Gama-4", "Zeta-1"];
+    const publica = codigosDeAcesso.slice(1, 4);
+    const codigosAtualizados = [...codigosDeAcesso];
+    const posicao = codigosAtualizados.indexOf("Omega-3");
+    //PROCESSAMENTO
+    codigosAtualizados.splice(posicao, 1, "Sigma-5");
+
+    //SAÍDA
+    alert("Lista Original: "+codigosDeAcesso.join(" - "));
+    alert("Lista Pública: "+publica.join(" - "));
+    alert("Lista Atualizada: "+codigosAtualizados.join(" - "));
+</script>

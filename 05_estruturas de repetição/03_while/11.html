@@ -1,0 +1,30 @@
+<meta charset="UTF-8">
+<script>
+    //Problema: Inversão de Número
+    /*
+    Escreva um programa que peça ao usuário um número e inverta sua ordem usando uma estrutura de repetição while.
+    Exemplo:
+    Entrada: 12345
+    Saída: 54321
+    */
+
+    //ENTRADA
+    let trocar;
+    let pegar;
+    let i = 0;
+    let invertido = [];
+    let numero = prompt("Digite um número para inverter").trim();
+    while (isNaN(numero)) {
+        alert("Responda apenas com números!");
+        numero = prompt("Digite um número para inverter").trim();        }
+    numero = numero + "";
+    pegar = numero.split("");
+    let tamanho = pegar.length;
+    //PROCESSAMENTO
+    while (i < tamanho) {
+        trocar = pegar.pop();
+        invertido.push(trocar);
+        i++;}
+    //SAÍDA
+    alert(invertido.join(""));
+</script>

@@ -1,0 +1,35 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: AUMENTO DE PREÇO
+    Recebe o preço do produto e calcula o aumento do preço, baseado no seguinte critério:
+    - até 280(inclusive): aumento de 20 %
+    - até 700(inclusive): aumento de 15 %
+    - até 1500(inclusive): aumento de 10 %
+    - acima de 1500: aumento de 5 %
+    */
+
+    //ENTRADA
+let preco = Number(prompt("Qual o preço do produto?\n\n(Use ponto no lugar da vírgula)"));
+    //PROCESSAMENTO
+  
+  //Loop caso o usuário responda com letras
+    while(isNaN(preco)) {
+alert("Escreva apenas números");
+preco = Number(prompt("Qual o preço do produto?\n\n(Use ponto no lugar da vírgula)"));
+}
+  //Cálculos
+(preco <= 280) ? preco +=preco*0.2 
+:(preco <= 700) ? preco +=preco*0.15 
+:(preco <= 1500) ? preco +=preco*0.1
+:preco+=preco*0.05;
+
+    //SAÍDA
+alert("O preço final do produto será " +preco.toFixed(2)+ " reais");
+
+//NOTAS
+/*Eu usei o loop while porque já sabia um pouco por causa do MIMO, eu já tô terminando o nível 4*/
+
+/*Essa é a primeira versão que eu fiz, usando loop while, mas o arquivo 05_02.html tem a versão sem loop while*/
+
+</script>

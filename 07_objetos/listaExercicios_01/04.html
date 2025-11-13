@@ -1,0 +1,38 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: LATIDO DO CACHORRO
+    Crie um objeto chamado cachorro com as propriedades nome, raca e cor, e crie um método que retorne o latido do cachorro.
+    */
+    
+    //ENTRADA
+     let letraMaiuscula = (nome) => {
+        let nomeComeco = nome.charAt(0)
+        let restoNome = nome.substring(1);
+        return nome = nomeComeco.toUpperCase() + restoNome;}
+
+    cachorro = {
+        nome: "",
+        raça: "",
+        cor: "",
+        latido: function() {return "Au Au!"},
+        InformaçõesGerais: function () 
+            {return "Nome: "+this.nome+
+                    ";\nraça: "+this.raça+
+                    ";\ncor: "+this.cor+
+                    ";\nlatido: "+this.latido()}}
+
+let nome = prompt("Qual o nome do cachorro?").trim().toLowerCase();
+while(!isNaN(nome)){alert("Digite apenas letras");nome = prompt("Qual o nome do cachorro?").trim().toLowerCase();}
+let raça = prompt("Qual a raça do cachorro?").trim().toLowerCase();
+while(!isNaN(raça)){alert("Digite apenas letras");raça = prompt("Qual a raça do cachorro?").trim().toLowerCase();}
+let cor = prompt("Qual a cor do cachorro?").trim().toLowerCase();
+while(!isNaN(cor)){alert("Digite apenas letras");cor = prompt("Qual a cor do cachorro?").trim().toLowerCase();}
+    //PROCESSAMENTO
+cachorro.raça = letraMaiuscula(raça);
+cachorro.nome = letraMaiuscula(nome);
+cachorro.cor = cor;
+
+    //SAÍDA
+alert(cachorro.latido());
+</script>

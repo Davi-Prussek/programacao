@@ -1,0 +1,41 @@
+<script>
+    //Problema: Identificar Caracteres
+    /*
+    Peça para o usuário informar uma palavra. Após, identifique a quantidade de vogais e de consoantes que existem na palavra informada pelo usuário.
+    Apresente as quantidades no final do programa.
+    */
+
+    //Entrada
+    let palavra = prompt("Digite uma palavra").trim().toLowerCase();
+    const verificar = palavra.split("");
+    const vogais = [];
+    const consoantes = [];
+    const numeros = [];
+    const simbolos = [];
+    //Processamento
+    for (let item of verificar) {
+        if (!isNaN(item)) {
+            numeros.push(item)
+        }
+        if (typeof item === `string`) {
+            if (/[aeiou]/i.test(item)) {
+                vogais.push(item)
+            } else if (/[bcdfghijklmnpqrstvwxyz]/i.test(item)) {
+                consoantes.push(item)
+            }
+        }
+        if (!isNaN(item) === false && typeof item === `string` && /[aeiou]/i.test(item) === false && /[bcdfghijklmnpqrstvwxyz]/i.test(item) === false) {
+            simbolos.push(item);
+        }
+    }
+    //Saída
+    if (vogais.length > 0) {document.write("A quantidade de vogais dessa palavra é: "+vogais.length+"<br>") }
+    if (consoantes.length > 0) {document.write("A quantidade de consoantes dessa palavra é: "+consoantes.length+"<br>")}
+    if (numeros.length > 0) {document.write("A quantidade de números dessa palavra é: "+numeros.length+"<br>")}
+    if (simbolos.length > 0) {document.write("A quantidade de símbolos dessa palavra é: "+simbolos.length+"<br>")}
+</script>
+<style>
+    html {
+        font-size: 1.5rem;
+    }
+</style>

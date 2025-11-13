@@ -1,0 +1,29 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: ÁREA DO RETÂNGULO
+    Crie um objeto chamado retangulo com as propriedades base e altura, e crie um método para calcular a área do retângulo.
+    */
+    
+    //ENTRADA && PROCESSAMENTO
+    let retangulo = {
+    base: 0,
+    altura: 0,
+    conta: function(base,altura) {
+    return base * altura;
+}}
+let b = Number(prompt("Qual a base do retangulo?"));
+        while (isNaN(b)) {
+            alert("Escreva apenas valores numéricos!");
+            b = Number(prompt("Qual a base do retangulo?"));}
+            retangulo.base = b;
+            
+        let h = Number(prompt("Qual a altura do retangulo?"));
+        while (isNaN(h)) {
+            alert("Escreva apenas valores numéricos!");
+            h = Number(prompt("Qual a base triângulo?"));}
+            retangulo.altura = h;
+
+    //SAÍDA
+alert("A área do retangulo é: "+retangulo.conta(b,h));
+</script>

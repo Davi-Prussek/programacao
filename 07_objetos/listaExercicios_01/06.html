@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<script>
+    /*
+    PROBLEMA: COR DA CASA
+    Crie um objeto chamado casa com as propriedades cor, numeroDePortas e numeroDeJanelas, e crie um método que retorne a cor da casa.
+    */
+
+    //ENTRADA
+    casa = {
+        cor: "",
+        numeroDePortas: 0,
+        numeroDeJanelas: 0,
+    }
+    let cor = prompt("Qual a cor da casa?").trim().toLowerCase();
+    while (!isNaN(cor)) {
+        alert("Digite apenas letras!");
+        cor = prompt("Qual a cor da casa?").trim().toLowerCase();}
+
+    let portas = Number(prompt("Quantas portas tem na casa?"));
+    while (isNaN(portas)) {
+        alert("Digite apenas valores numéricos!");
+        portas = Number(prompt("Quantas portas tem na casa?"));}
+
+    let janelas = Number(prompt("Quantas janelas tem na casa?"));
+    while (isNaN(janelas)) {
+        alert("Digite apenas valores numéricos!");
+        janelas = Number(prompt("Quantas janelas tem na casa?"));}
+    //PROCESSAMENTO
+casa.cor = cor;
+casa.portas = portas;
+casa.janelas = janelas;
+    //SAÍDA
+alert("A cor da casa é "+casa.cor);
+</script>

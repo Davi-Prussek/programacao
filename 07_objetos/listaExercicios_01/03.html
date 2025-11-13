@@ -1,0 +1,49 @@
+  <meta charset="UTF-8">
+  <script>
+  /*
+      PROBLEMA: DADOS DO LIVRO
+      Crie um objeto chamado livro com as propriedades titulo, autor e numeroDePaginas, e crie um método que retorne o livro em formato string.
+      */
+
+  //ENTRADA && PROCESSAMENTO
+  let letraMaiuscula = (nome) => {
+    let nomeComeco;
+    let restoNome;
+    let nomeCompletoMaiusculo = [];
+    let primeiraLetra = nome.split(" ");
+    for (let i = 0; i < primeiraLetra.length; i++) {
+      nomeComeco = primeiraLetra[i].charAt(0);
+      restoNome = primeiraLetra[i].substring(1);
+      nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+  let livro = {
+    titulo: "",
+    autor: "",
+    paginas: 0,
+    informaçõesGerais: function () {
+      return ("Nome: "+this.titulo+", autor(a): "+this.autor+", páginas: "+this.paginas+"");},
+};
+
+  let nomeLivro = prompt("Qual o nome do livro?").trim().toLowerCase();
+
+  let autor = prompt("Qual o nome do autor?").trim().toLowerCase();
+  
+  while (!isNaN(autor)) {
+    alert("Responda apenas com letra!");
+    autor = prompt("Qual o nome do autor?").trim().toLowerCase();}
+
+  let paginas = Number(prompt("Quantas páginas esse livro possui?"));
+  
+  while (isNaN(paginas)) {
+    alert("Responda apenas com valores numéricos!");
+    paginas = Number(prompt("Quantas páginas esse livro possui?"));}
+  
+  livro.paginas = paginas;
+  livro.titulo = letraMaiuscula(nomeLivro);
+  livro.autor = letraMaiuscula(autor);
+  //SAÍDA
+alert(livro.informaçõesGerais());
+
+alert("Esse código possui uma versão alternativa no github, caso tenha interesse em ver uma versão mais completa, meu github é:\nDavi-Prussek e o nome do repositório é Lista_de_Livros");
+</script>

@@ -1,0 +1,30 @@
+<script>
+    /*
+    PROBLEMA: VERIFICADOR DE PALÍNDROMO
+
+    Desenvolva um programa que peça ao usuário para inserir uma palavra.
+    O programa deve verificar se a palavra é um palíndromo, desconsiderando
+    diferenças entre maiúsculas e minúsculas.
+
+    **Regras:**
+    1. Um palíndromo é uma palavra que permanece a mesma quando lida de trás para frente (ex: "arara", "ovo", "radar").
+    2. O programa deve solicitar uma palavra ao usuário.
+    3. A verificação não deve ser sensível a maiúsculas/minúsculas ("Ovo" deve ser considerado um palíndromo).
+    4. Exiba um alerta: "[PALAVRA] é um palíndromo." ou "[PALAVRA] não é um palíndromo.".
+    */
+
+    //ENTRADA
+const palavra = prompt("Insira uma palavra").toLocaleLowerCase();
+let palavraInvertida = palavra.split("").reverse().join("");
+
+
+    //PROCESSAMENTO && SAÍDA
+switch (palavra === palavraInvertida) {
+    case true:
+    alert(palavra+ " é um palíndromo, fica " +palavraInvertida);
+        break;
+        default:
+            alert(palavra+ " Não é um palíndromo, fica " +palavraInvertida);
+            break;
+}
+</script>

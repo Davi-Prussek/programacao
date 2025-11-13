@@ -1,0 +1,173 @@
+<script>
+    /*
+    PROBLEMA: OPERAÇÃO MATEMÁTICA
+    Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+    - par ou ímpar;
+    - positivo ou negativo;
+    - inteiro ou decimal.
+    */
+
+    //ENTRADA
+
+    const n1 = Number(prompt("Diga um número desejado"));
+    const n2 = Number(prompt("Diga agora outro número desejado"));
+    const conta = prompt("Qual conta você deseja fazer?\n\n(adição, subtração, multiplicação ou divisão)");
+
+    //PROCESSAMENTO
+
+    let adicao = n1 + n2;
+    let subtracao = n1 - n2;
+    let divisao = n1 / n2;
+    let multiplicacao = n1 * n2;
+
+    //SAÍDA
+
+    //adição
+
+    if (conta == "adiçao") {
+        alert("O resultado é " + adicao);
+
+        //ímpar ou par
+
+        if (adicao % 2 == 0) {
+            alert("É par")
+        } else if (adicao % 2 > 0) {
+            alert("É ímpar");
+        }
+
+        //positivo ou negativo
+
+        if (adicao > 0) {
+            alert("É positivo");
+        } else if (adicao < 0) {
+            alert("É negativo")
+        } else if (adicao == 0) {
+            alert("É neutro");
+        }
+
+        //decimais
+        if (adicao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (adicao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+    }
+
+
+
+    //subtração
+
+    if (conta == "subtraçao") {
+        alert("O resultado é " + subtracao);
+
+
+        if (subtracao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (subtracao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+
+        //ímpar ou par
+
+        if (subtracao % 2 == 0) {
+            alert("É par")
+        } else if (subtracao % 2 > 0) {
+            alert("É ímpar");
+        }
+
+        //positivo ou negativo
+
+        if (subtracao > 0) {
+            alert("É positivo");
+        } else if (subtracao < 0) {
+            alert("É negativo")
+        } else if (subtracao == 0) {
+            alert("É neutro");
+        }
+
+        //decimais
+
+        if (subtracao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (subtracao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+    }
+
+
+
+    //divisão
+
+    if (conta == "divisao") {
+        alert("O resultado é " + divisao);
+
+
+        if (divisao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (divisao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+
+        //ímpar ou par
+
+        if (divisao % 2 == 0) {
+            alert("É par")
+        } else if (divisao % 2 > 0) {
+            alert("É ímpar");
+        }
+
+        //positivo ou negativo
+
+        if (divisao > 0) {
+            alert("É positivo");
+        } else if (divisao < 0) {
+            alert("É negativo")
+        } else if (divisao == 0) {
+            alert("É neutro");
+        }
+
+        //decimais
+
+        if (divisao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (divisao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+    }
+
+
+
+    //multplicação
+
+if (conta == "multiplicaçao") {
+        alert("O resultado é " + multiplicacao);
+
+        //ímpar ou par
+
+        if (multiplicacao % 2 == 0) {
+            alert("É par")
+        } else if (multiplicacao % 2 > 0) {
+            alert("É ímpar");
+        }
+
+        //positivo ou negativo
+
+        if (multiplicacao > 0) {
+            alert("É positivo");
+        } else if (multiplicacao < 0) {
+            alert("É negativo")
+        } else if (multiplicacao == 0) {
+            alert("É neutro");
+        }
+
+        //decimais
+        if (multiplicacao % 1 > 0) {
+            alert("Tem decimais");
+        } else if (multiplicacao % 1 == 0) {
+            alert("Não tem decimais");
+        }
+    } else {
+        alert("Insira um valor numérico");
+    }
+
+</script>

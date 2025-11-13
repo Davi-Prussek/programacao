@@ -1,0 +1,104 @@
+<meta charset="UTF-8">
+<script>
+  /*
+  PROBLEMA: CÁLCULO ENTRE DOIS NÚMEROS
+  Faça um script que leia 2 números e em seguida pergunte ao usuário qual operação ele deseja realizar. O resultado da operação deve ser acompanhado de uma frase que diga se o número é:
+  - par ou ímpar;
+  - positivo ou negativo;
+  - inteiro ou decimal.
+  */
+
+  //ENTRADA
+  function execução() {
+    let numero1 = Number(prompt("Digite o primeiro número"));
+    while (isNaN(numero1)) {
+      alert("Escreva apenas números");
+      numero1 = Number(prompt("Digite o primeiro número"));
+    }
+    let numero2 = Number(prompt("Digite o segundo número"));
+    while (isNaN(numero2)) {
+      alert("Escreva apenas números");
+      numero2 = Number(prompt("Digite o segundo número"));
+    }
+    let conta = prompt("Qual operação deseja realizar?\n\n(adição, subtração, divisão ou multiplicação)").trim().toLowerCase();
+    while (conta !== "adição" && conta !== "subtração" && conta !== "divisão" && conta !== "multiplicação") {
+      alert("Insira uma operação válida");
+      conta = prompt("Qual operação deseja realizar?\n\n(adição, subtração, divisão ou multiplicação)").trim().toLowerCase();
+    }
+          let resultado;
+    //FUNÇÕES
+    function imparPar() {
+          switch (resultado % 1 === 0) {
+          case false:
+          switch (resultado === 0) {
+          case true:
+          alert("Não é par nem ímpar, é neutro");
+          break;
+          case false:
+          alert("Ímpar/par não se aplica a decimais");
+          break;}
+          break;
+          case true:
+          switch (resultado === 0) {
+          case true:
+          alert("Não é par nem ímpar, é neutro");
+          break;
+          case false:
+          switch (resultado % 2 === 0) {
+          case true:
+          alert("É par");
+          break;
+          case false:
+          alert("É ímpar");
+          break;}
+          break;}
+          break;}}
+    function positivoNegativo() {
+          switch (resultado === 0) {
+          case true:
+          alert("Não é positivo nem negativo, é neutro");
+          break;
+          case false:
+          switch (resultado > 0) {
+          case true:
+          alert("É positivo");
+          break;
+          default:
+          alert("É negativo");  
+          break;}}}
+    function decimal() {
+          switch (Number.isInteger(resultado)) {
+          case true:
+          alert("Não tem decimais");
+          break;
+          default:
+          alert("Tem decimais");
+          break;}
+    //CONTAS
+          switch (conta) {
+          case "adição":
+          resultado = numero1 + numero2;
+          break;
+          case "subtração":
+          resultado = numero1 - numero2;
+          break;
+          case "divisão":
+          switch (numero2 === 0) {
+          case true:
+          alert("Indefinido");
+          return;
+          break;
+          default:
+          resultado = numero1 / numero2;
+          break;}
+          break;
+          case "multiplicação":
+          resultado = numero1 * numero2;
+          break;}
+    //SAÍDA
+          alert("O resultado da operação é " + resultado);
+          imparPar();
+          positivoNegativo();
+          decimal();}}
+    execução();
+</script>

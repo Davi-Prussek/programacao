@@ -1,0 +1,43 @@
+<script>
+    /*
+    PROBLEMA: Validador de Lista de Convidados
+    Cenário: Você está na portaria de um evento exclusivo e precisa verificar se o nome de uma pessoa que acabou de chegar está na lista de convidados.
+
+    Array Inicial:
+    const convidadosVIP = ["Angela", "Ricardo", "Julia", "Marcos", "Fernanda"];
+    Entrada do Usuário: O programa deve solicitar ao usuário que digite o nome que deseja verificar.
+
+    Sua Tarefa:
+    Crie uma variável nomeConvidado e armazene nela o nome fornecido pelo usuário.
+    Utilize um método de array para verificar se o nomeConvidado existe no array convidadosVIP.
+    Exiba uma mensagem no console: "Acesso liberado!" se o nome estiver na lista, ou "Acesso negado." se não estiver.
+    */
+
+    //ENTRADA
+    let letraMaiuscula = (nome) => {
+        let nomeComeco;
+        let restoNome;
+        let nomeCompletoMaiusculo = [];
+        let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome);}
+    return nomeCompletoMaiusculo.join(" ");};
+
+    const convidadosVIP = ["Angela", "Ricardo", "Julia", "Marcos", "Fernanda"];
+
+    let nomeVerificar = prompt("Qual nome deseja verificar?").trim();
+    while (!/^[a-zA-Z\s]+$/.test(nomeVerificar)) {
+        alert("Responda usando apenas letras!");
+        nomeVerificar = prompt("Qual nome deseja verificar?").trim();
+    }
+    //PROCESSAMENTO
+    let nomeConvidado = letraMaiuscula(nomeVerificar);
+    //SAÍDA
+    if (convidadosVIP.includes(nomeConvidado)) {
+        alert("Acesso liberado!");
+    } else {
+        alert("Acesso negado.");
+    }    
+</script>

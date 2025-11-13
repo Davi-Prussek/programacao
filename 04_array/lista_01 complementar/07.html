@@ -1,0 +1,27 @@
+<script>
+    /*
+    PROBLEMA: Montando uma Equipe de Elite
+    Cenário: Você é o líder de uma agência e precisa montar uma equipe para uma missão especial. Você tem dois times disponíveis, "Equipe Alpha" e "Equipe Bravo". Sua tarefa é criar uma "Equipe de Elite" pegando os dois primeiros membros da Equipe Alpha e os dois últimos membros da Equipe Bravo.
+
+    Instruções:
+    const equipeAlpha = ["Agente Smith", "Agente Jones", "Técnico Brown", "Analista White"];
+    const equipeBravo = ["Especialista Green", "Piloto Black", "Médica Grey", "Engenheiro Blue"];
+    Crie um novo array, membrosAlpha, contendo apenas os dois primeiros membros da equipeAlpha.
+    Crie um novo array, membrosBravo, contendo apenas os dois últimos membros da equipeBravo.
+    Crie a equipeDeElite final, que será a combinação dos membrosAlpha e membrosBravo.
+    Exiba a composição da Equipe de Elite.
+    Resultado esperado:
+    Equipe de Elite: Agente Smith,Agente Jones,Médica Grey,Engenheiro Blue
+
+    */
+
+    //ENTRADA
+    const equipeAlpha = ["Agente Smith", "Agente Jones", "Técnico Brown", "Analista White"];
+    const equipeBravo = ["Especialista Green", "Piloto Black", "Médica Grey", "Engenheiro Blue"];
+    const ato1 = equipeAlpha.splice(0, 2);
+    const ato2 = equipeBravo.splice(equipeBravo.length-2, 2);
+    //PROCESSAMENTO
+    let equipeDeElite_final = ato1.concat(ato2);
+    //SAÍDA
+    alert(equipeDeElite_final.join(" - "));
+</script>
