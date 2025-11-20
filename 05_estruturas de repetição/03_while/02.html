@@ -1,12 +1,28 @@
 <meta charset="UTF-8">
 <script>
+      let LMP = (nome) => {
+            let preposicao = ["a", "ante", "após", "até", "com", "contra", "de", "desde", "em",
+            "entre", "para", "perante", "por", "sem", "sob", "sobre", "trás", "da", "de", "do"];
+            let nomeComeco;
+            let restoNome;
+            let nomeCompletoMaiusculo = [];
+            let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+            let palavraMinuscula = primeiraLetra[i].toLowerCase();
+            if (preposicao.includes(primeiraLetra[i])) {
+            nomeCompletoMaiusculo.push(palavraMinuscula);    
+            }else {
+            nomeComeco = primeiraLetra[i].charAt(0);
+            restoNome = primeiraLetra[i].substring(1);
+            nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome)}};
+      return nomeCompletoMaiusculo.join(" ");};
     /*
     PROBLEMA: VALIDAR USUÁRIO E SENHA
     Faça um programa que leia um nome de usuário e a sua senha e não aceite a senha igual ao nome do usuário, mostrando uma mensagem de erro e voltando a pedir as informações.
     */
 
     //ENTRADA
-    let nome = prompt("Digite um nome de usuário").trim();
+    let nome = LMP(prompt("Digite um nome de usuário").trim());
     let senha = prompt("Digite uma senha").trim();
 
     //PROCESSAMENTO
@@ -14,8 +30,8 @@
         alert("ERRO!");
         alert("Nome de usuário e senha não podem ser iguais");
 
-        let nome = prompt("Digite um nome de usuário").trim();
-        let senha = prompt("Digite uma senha").trim();
+        nome = LMP(prompt("Digite um nome de usuário").trim());
+        senha = prompt("Digite uma senha").trim();
     }
 
     //SAÍDA

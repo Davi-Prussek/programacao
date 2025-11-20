@@ -1,5 +1,21 @@
 <meta charset="UTF-8">
 <script>
+          let LMP = (nome) => {
+            let preposicao = ["a", "ante", "após", "até", "com", "contra", "de", "desde", "em",
+            "entre", "para", "perante", "por", "sem", "sob", "sobre", "trás", "da", "de", "do"];
+            let nomeComeco;
+            let restoNome;
+            let nomeCompletoMaiusculo = [];
+            let primeiraLetra = nome.split(" ");
+            for (let i = 0; i < primeiraLetra.length; i++) {
+            let palavraMinuscula = primeiraLetra[i].toLowerCase();
+            if (preposicao.includes(primeiraLetra[i])) {
+            nomeCompletoMaiusculo.push(palavraMinuscula);    
+            }else {
+            nomeComeco = primeiraLetra[i].charAt(0);
+            restoNome = primeiraLetra[i].substring(1);
+            nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome)}};
+      return nomeCompletoMaiusculo.join(" ");};
     /*
     PROBLEMA: VALIDAR DADOS DO USUÁRIO
     Faça um programa que leia e valide as seguintes informações:
@@ -11,37 +27,63 @@
     */
 
     //ENTRADA && PROCESSAMENTO
-    let nome = prompt("Qual seu nome").trim();
-    while (nome.length <= 3) {
+
+    //Informações do cadastro e pra fazer o loop correr 
+    let correr = "s";
+    const cadastro = {
+    nome: "",
+    idade: "",
+    salario: 0,
+    genero: "",
+    estado: ""
+    }
+    while (correr == "s") {
+    cadastro.nome = LMP(prompt("Qual seu nome").trim());
+    while (cadastro.nome.length <= 3) {
         alert("O nome deve possuir mais de três caracteres");
-        nome = prompt("Qual seu nome").trim();
+        cadastro.nome = LMP(prompt("Qual seu nome").trim());
     }
 
-    let idade = Number(prompt("Qual sua idade"));
-    while (isNaN(idade)) {
-        alert("Responda apenas com valores numéricos");
-        idade = Number(prompt("Qual sua idade"));
+    cadastro.idade = Number(prompt("Qual sua idade"));
+    if (!Number.isInteger(cadastro.idade)) {
+        while (!Number.isInteger(cadastro.idade)) {
+            alert("ERRO!");
+            alert("Digite apenas valores numéricos inteiros!");
+            cadastro.idade = Number(prompt("Qual sua idade"));
+        }
     }
+    cadastro.idade = cadastro.idade+" anos";
 
-    let salario = Number(prompt("Qual seu salário?\n\n (Use ponto ao invés de vírgula)"));
-    while (isNaN(salario)) {
+    cadastro.salario = Number(prompt("Qual seu salário?\n\n (Use ponto ao invés de vírgula)"));
+    while (isNaN(cadastro.salario)) {
         alert("Responda apenas com valores numéricos")
-        salario = Number(prompt("Qual seu salário?\n\n (Use ponto ao invés de vírgula)"));
+        cadastro.salario = Number(prompt("Qual seu salário?\n\n (Use ponto ao invés de vírgula)"));
     }
+    cadastro.salario = cadastro.salario+" reais";
 
-    let genero = prompt("Sexo\n\n(F-Feminino ou M-Masculino)").trim().charAt().toLowerCase();
-    while (genero !== "f" && genero !== "m") {
+    cadastro.genero = prompt("Sexo\n\n(F-Feminino ou M-Masculino)").trim().charAt().toLowerCase();
+    const sexo = ["f", "m"];
+    while (!sexo.includes(cadastro.genero)) {
         alert("Responda apenas com F-Feminino ou M-Masculino");
-        genero = prompt("Sexo\n\n(F-Feminino ou M-Masculino)").trim().charAt().toLowerCase();
+        cadastro.genero = prompt("Sexo\n\n(F-Feminino ou M-Masculino)").trim().charAt().toLowerCase();
     }
+    cadastro.genero = cadastro.genero.toUpperCase();
 
-    let listaEstado = ["s", "c", "v", "d"];
-    let estado = prompt("Qual seu estado civil").trim().charAt().toLowerCase();
-    while (!listaEstado.includes(estado)) {
+    const listaEstado = ["s", "c", "v", "d"];
+    cadastro.estado = prompt("Qual seu estado civil?\n\n(s, c, v, d)").trim().charAt().toLowerCase();
+    while (!listaEstado.includes(cadastro.estado)) {
         alert("Digite um estado civil existente");
-        estado = prompt("Qual seu estado civil").trim().charAt().toLowerCase();
+        cadastro.estado = prompt("Qual seu estado civil?\n\n(s, c, v, d)").trim().charAt().toLowerCase();
+        }
+        cadastro.estado = cadastro.estado.toUpperCase();
+        correr = prompt(`
+        Nome: ${cadastro.nome}
+        Idade: ${cadastro.idade}
+        Salário: ${cadastro.salario}
+        Gênero: ${cadastro.genero}
+        Estado Civil: ${cadastro.estado}\n\nDados corretos ou deseja refazer o cadastro?(S-Sim ou N-Não)
+        `).trim().toLowerCase().charAt(0);
     }
-
     //SAÍDA
-    alert("Todas as informações são validas!");
+    alert("usuário criado!");
 </script>

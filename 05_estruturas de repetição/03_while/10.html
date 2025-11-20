@@ -7,23 +7,13 @@
 
     //ENTRADA
 let sequencia = Number(prompt("Quantos números da sequência de Fibonacci você deseja obter?"));
+const fibonacci = [1,1];
 while (isNaN(sequencia)) {
     alert("Digite apenas valores numéricos!");
     sequencia = Number(prompt("Quantos números da sequência de Fibonacci você deseja obter?"));}
-let n1 = 0;
-let n2 = 1;
-const listaFibonacci = [];
-let i = 0;
-let n3;
-listaFibonacci.push(n1);
-listaFibonacci.push(n2);
     //PROCESSAMENTO
-while (i < sequencia-2) {
-n3 = n1 + n2;
-n1 = n2;
-n2 = n3;
-listaFibonacci.push(n3)
-i++;}
+while (sequencia > fibonacci.length) {
+    fibonacci.push(fibonacci[fibonacci.length-1] + fibonacci[fibonacci.length-2]);}
     //SAÍDA
-alert(listaFibonacci);    
+alert(`A sequencia de Fibonacci até o número ${sequencia} vai ser: (${fibonacci})`);    
 </script>
