@@ -1,3 +1,3 @@
 # programacao-I
 
-Aqui eu vou deixar salvo e organizado todas as listas de programação-I resolvidas e os exemplos 
+Resolução das atividades de programação do repositório https://github.com/ldmfabio/Programacao.git do professor Fábio Longo de Moura
