@@ -15,14 +15,16 @@
     nome = prompt("Qual seu nome?").trim();
   }
   //PROCESSAMENTO
-  function colocarNoArray() {
-    let listaNome = [];
-    let comeco = nome.split("");
-    let finalmente = comeco.shift();
-    //Parte pra definir um resultado no loop
-    return (resultado = finalmente.toUpperCase() + comeco.join(""));
-  }
+            let letraMaiuscula = (nome) => {
+              let nomeComeco;
+              let restoNome;
+              let nomeCompletoMaiusculo = [];
+              let primeiraLetra = nome.split(" ");
+              for (let i = 0; i < primeiraLetra.length; i++) {
+                nomeComeco = primeiraLetra[i].charAt(0);
+                restoNome = primeiraLetra[i].substring(1);
+                nomeCompletoMaiusculo.push(nomeComeco.toUpperCase() + restoNome.toLowerCase());}
+                return alert("Bom dia, " + nomeCompletoMaiusculo.join(" ") + "!")};
   //SAÍDA
-  colocarNoArray();
-  alert("Bom dia " + colocarNoArray() + "!");
+        letraMaiuscula(nome)
 </script>
