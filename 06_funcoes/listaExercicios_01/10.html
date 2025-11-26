@@ -32,12 +32,12 @@
   procurar();
 
   let letraLetras = "";
-  (final.length > 1) ? letraLetras = "letras" : letraLetras = "letra";
-
-  let uma;
-  (final.length === 1) ? uma = "uma" : uma = final.length;
   
-
+  let uma;
+  let resultado = (final.length === 1) ? uma = "uma" : (final.length == 0) ? uma = 0 : uma = final.length;
+  
+  (final.length > 1) ? letraLetras = "letras" : (final.length == 0) ? letraLetras = "letras" : letraLetras = "letra"; 
+  
   //SAÍDA
-  alert(`A frase ou palavra ${frase} possui ${uma} ${letraLetras} "${letra}"`);
+  alert(`A frase ou palavra ${frase} possui ${resultado} ${letraLetras} "${letra}"`);
 </script>

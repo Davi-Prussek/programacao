@@ -14,17 +14,21 @@
   let A;
   let P;
   let pi = Math.PI.toFixed(2);
+
   function calculoArea(π) {
     A = π * raio ** 2;
     P = 2 * π * raio;
     P = P.toFixed(1);
     A = A.toFixed(1);}
+
   //PROCESSAMENTO
   let raio = Number(prompt("Qual raio do círculo?"));
+
   while (isNaN(raio)) {
     alert("Escreva apenas valores numéricos!");
     raio = Number(prompt("Qual raio do círculo?"));}
+
   //SAÍDA
   calculoArea(pi);
-  alert("A área do círculo é: " + A + "\n\nO perímetro é: " + P);
+  alert("A área do círculo é: " +A+ "\n\nO perímetro é: " +P);
 </script>
