@@ -1,0 +1,75 @@
+<script>
+    /*
+    ## Problema 2: Gestor de Notas e Médias de Alunos
+
+Contexto: Um professor precisa de um sistema para registrar as notas dos seus 5 alunos em 4 bimestres, calcular médias e identificar alunos com desempenho baixo.
+
+### Requisitos:
+1. Função para validar notas: Valide se a nota está entre 0 e 10 (use while).
+2. Função para adicionar notas: Insira as 4 notas de cada aluno usando for.
+3. Função para calcular média: Use for para somar as notas e calcular a média.
+4. Função para classificar desempenho: Use if...else aninhado:
+	 - Média >= 9: Excelente
+	 - Média >= 7: Bom
+	 - Média >= 5: Regular
+	 - Média < 5: Insuficiente
+5. Função para gerar relatório: Mostre o nome, notas, média e classificação de cada aluno.
+Dados Iniciais:
+javascript
+let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
+let notas = [
+	// cada elemento é um array com 4 notas, ex: [8, 7.5, 9, 10]
+];
+> **DESAFIO:** Implemente um sistema completo onde o professor possa cadastrar notas, remover um aluno se necessário, visualizar relatórios e tudo validado adequadamente.*/
+let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
+let notas = [[],[],[],[]];
+let medias = [];
+/* let contador = 1;
+for (let item of alunos) {
+    let notas = [];
+    for (let i = 1;i <= 4;i++) {
+        alunos.push();}
+} */
+
+function validar(n) {
+    
+    while (isNaN(n)) {
+        alert("Insira apenas valores numéricos!");
+        n = Number(prompt(`Qual a nota do aluno`))
+    }
+    while (n < 0 || n > 10) {
+        alert("Insira apenas valores entre 0 e 10");
+        n = Number(prompt(`Qual a nota do aluno`))
+    }
+    return n;
+}
+
+function adicionar() {
+    for (let item of alunos) {
+        for (let i = 0;i < 4;i++) {
+            let nota = Number(prompt(`O aluno ${item} recebeu quais notas?`));
+            while (nota < 0 || nota > 10 || isNaN(nota)) {
+                nota = validar(nota);
+            }
+            notas[alunos.indexOf(item)].push(nota);
+        }
+
+    }
+}
+
+function media() {
+    let contador = 0;
+for (let item of notas) {
+
+    for (let item2 of item) {
+        contador += item2;
+    }
+    medias.push(contador/notas.length);
+}
+}
+
+adicionar();
+media();
+
+alert(medias)
+</script>
