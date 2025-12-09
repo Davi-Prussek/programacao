@@ -9,67 +9,327 @@ Contexto: Um professor precisa de um sistema para registrar as notas dos seus 5 
 2. Função para adicionar notas: Insira as 4 notas de cada aluno usando for.
 3. Função para calcular média: Use for para somar as notas e calcular a média.
 4. Função para classificar desempenho: Use if...else aninhado:
-	 - Média >= 9: Excelente
-	 - Média >= 7: Bom
-	 - Média >= 5: Regular
-	 - Média < 5: Insuficiente
+     - Média >= 9: Excelente
+     - Média >= 7: Bom
+     - Média >= 5: Regular
+     - Média < 5: Insuficiente
 5. Função para gerar relatório: Mostre o nome, notas, média e classificação de cada aluno.
 Dados Iniciais:
 javascript
 let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
 let notas = [
-	// cada elemento é um array com 4 notas, ex: [8, 7.5, 9, 10]
+    // cada elemento é um array com 4 notas, ex: [8, 7.5, 9, 10]
 ];
 > **DESAFIO:** Implemente um sistema completo onde o professor possa cadastrar notas, remover um aluno se necessário, visualizar relatórios e tudo validado adequadamente.*/
-let alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
-let notas = [[],[],[],[]];
-let medias = [];
-/* let contador = 1;
-for (let item of alunos) {
-    let notas = [];
-    for (let i = 1;i <= 4;i++) {
-        alunos.push();}
-} */
+    /* Valida se a nota é numérica e se está dentro do intervalo permitido (0 a 10). */
 
-function validar(n) {
-    
-    while (isNaN(n)) {
-        alert("Insira apenas valores numéricos!");
-        n = Number(prompt(`Qual a nota do aluno`))
+    function validar(n) {
+        while (isNaN(n)) {
+            alert("Insira apenas valores numéricos!");
+            n = Number(prompt(`Qual a nota do aluno`));
+        }
+        while (n < 0 || n > 10) {
+            alert("Insira apenas valores entre 0 e 10");
+            n = Number(prompt(`Qual a nota do aluno`));
+        }
+        return n;
     }
-    while (n < 0 || n > 10) {
-        alert("Insira apenas valores entre 0 e 10");
-        n = Number(prompt(`Qual a nota do aluno`))
-    }
-    return n;
-}
 
-function adicionar() {
-    for (let item of alunos) {
-        for (let i = 0;i < 4;i++) {
-            let nota = Number(prompt(`O aluno ${item} recebeu quais notas?`));
-            while (nota < 0 || nota > 10 || isNaN(nota)) {
-                nota = validar(nota);
+    /* Valida a quantidade de notas a serem adicionadas (entre 1 e 4). */
+    function validarQuantidade(n) {
+        while (isNaN(n)) {
+            alert("Insira apenas valores numéricos!");
+            n = Number(prompt(`Quantas notas vão ser adicionadas? (1 a 4)`));
+        }
+        while (n < 0 || n > 4) {
+            alert("Insira apenas valores entre 1 e 4!");
+            n = Number(prompt(`Quantas notas vão ser adicionadas? (1 a 4)`));
+        }
+        return n;
+    }
+
+    /* Valida quantas notas extras podem ser registradas com base no que ainda falta para completar 4 notas. */
+    function validarQuantidadeSubs(n, value) {
+        while (isNaN(n)) {
+            alert(`Insira apenas valores entre (1 a ${4 - registro[value].notas.length})`);
+            n = (prompt(`Quantas notas vão ser adicionadas? (1 a ${4 - registro[value].notas.length})`));
+        }
+        while (n < 0 || n > 4 - registro[value].notas.length) {
+            alert(`Insira apenas valores entre (1 a ${4 - registro[value].notas.length})`);
+            n = (prompt(`Quantas notas vão ser adicionadas? (1 a ${4 - registro[value].notas.length})`));
+        }
+        return n;
+    }
+
+    /* Formata nomes deixando a primeira letra maiúscula e o restante minúsculo, exceto preposições. */
+    function LMP(nome) {
+        const prep = ["a", "ante", "após", "até", "com", "contra", "de", "desde", "em",
+            "entre", "para", "perante", "por", "sem", "sob", "sobre", "trás", "da", "do"];
+        return nome.split(" ").map(palavra => {
+            const lower = palavra.toLowerCase();
+            return prep.includes(lower) ? lower : lower.charAt(0).toUpperCase() + lower.slice(1);
+        }).join(" ");
+    };
+
+    /*Função que calcula a média do aluno*/
+    function calcMedia(notas) {
+        let result = 0;
+        if (notas.length == 0) {
+            return result = "Não há notas registradas";
+        } else {
+            for (let item of notas) {
+                result += item;
             }
-            notas[alunos.indexOf(item)].push(nota);
+            return result / notas.length;
+        }
+    }
+
+    function calcResult(media, notas) {
+        if (notas.length !== 0) {
+            if (media >= 9) { return "Excelente" }
+            else if (media >= 7) { return "Bom" }
+            else if (media >= 5) { return "Regular" }
+            else { return "Insuficiente" }
+        }
+        else {
+            return "Não há notas para calcular a média"
+        }
+    }
+
+    function substituicao(value) {
+        let listaNotas = "";
+        for (let i = 0; i < registro[value].notas.length; i++) {
+            listaNotas += `Nota ${i + 1} - ${registro[value].notas[i]}\n`;
         }
 
+        let substituir = (prompt(`Qual nota deseja substituir?\n\n${listaNotas}\nDigite o número da nota (1 a ${registro[value].notas.length + 1})\nEx: nota 1`)).trim();
+
+        let numVer = [];
+        for (let i = 1; i <= registro[value].notas.length; i++) {
+            numVer.push(String(i));
+        }
+        let verificarSubs = substituir.split(" ");
+        while (verificarSubs.length !== 2) {
+            alert("Digite somente nota 1, ou nota 2, etc...");
+            substituir = (prompt(`Qual nota deseja substituir?\n\n${listaNotas}\nDigite o número da nota (1 a ${registro[value].notas.length + 1})\nEx: nota 1`)).trim();
+            verificarSubs = substituir.split(" ");
+        }
+        while (!numVer.includes(verificarSubs[1])) {
+            alert("Digite somente uma nota existente!");
+            substituir = (prompt(`Qual nota deseja substituir?\n\n${listaNotas}\nDigite o número da nota (1 a ${registro[value].notas.length + 1})\nEx: nota 1`)).trim();
+            verificarSubs = substituir.split(" ");
+        }
+
+
+        let substituto = Number(prompt("Qual será a nova nota?"));
+        validar(substituto);
+        registro[value].notas.splice(Number(verificarSubs[1] - 1), 1, substituto);
+
+        registro[value].media = calcMedia(registro[value].notas);
+        registro[value].classificação = calcResult(registro[value].media, registro[value].notas);
     }
-}
 
-function media() {
-    let contador = 0;
-for (let item of notas) {
+    function adicionarAluno() {
+        let nome = LMP(prompt("Qual será o nome do aluno adicionado?")).trim();
+        while (!/^[A-Za-zÀ-ú\s]+$/.test(nome)) {
+            alert("Digite um nome válido!");
+            nome = LMP(prompt("Qual será o nome do aluno adicionado?"));
+        }
+        let aluno = {
+            nome: nome,
+            notas: [],
+            media: 0,
+            classificação: "",
 
-    for (let item2 of item) {
-        contador += item2;
+            /* Retorna um relatório completo com os dados do aluno. */
+            saida: function relatorio() {
+                return "Nome: " + this.nome +
+                    "\nNotas: " + this.notas +
+                    "\nMédia: " + calcMedia(this.notas) +
+                    "\nClassificação: " + calcResult(calcMedia(this.notas), this.notas)
+            }
+        };
+        registro.push(aluno);
+        alunos.push(nome);
     }
-    medias.push(contador/notas.length);
-}
-}
+    /* Controla se o sistema principal permanece em execução. */
+    let mostrar = true;
 
-adicionar();
-media();
+    /* Lista inicial com os nomes dos alunos cadastrados. */
+    const alunos = ["João", "Maria", "Pedro", "Ana", "Carlos"];
+    /* Armazena os objetos contendo todas as informações de cada aluno. */
+    const registro = [];
 
-alert(medias)
+    /* Cria um objeto para cada aluno contendo nome, notas, média, classificação e função de relatório. */
+    for (let i = 0; i < alunos.length; i++) {
+        const aluno = {
+            nome: alunos[i],
+            notas: [],
+            media: 0,
+            classificação: "",
+
+            /* Retorna um relatório completo com os dados do aluno. */
+            saida: function relatorio() {
+                return "Nome: " + this.nome +
+                    "\nNotas: " + this.notas +
+                    "\nMédia: " + calcMedia(this.notas) +
+                    "\nClassificação: " + calcResult(calcMedia(this.notas), this.notas)
+            }
+        };
+        registro.push(aluno);
+    }
+
+    /* Loop central do sistema, responsável pelo menu e suas operações. */
+    while (mostrar == true) {
+        if (registro.length > 0) {
+            /* Pergunta ao usuário qual ação deseja realizar (ver, adicionar ou substituir notas). */
+            let awnser = prompt("Deseja ver ou adicionar ou substituir notas? (V-Ver, A-Add ou S-Substituir)\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n") + `\n\nCaso deseje adicionar ou retirar alunos do registro, digite "outros"`).trim().charAt(0).toLowerCase();
+            while (awnser !== "v" && awnser !== "a" && awnser !== "s" && awnser !== "o") {
+                alert("Digite apenas opções válidas!");
+                awnser = prompt("Deseja ver ou adicionar ou substituir notas? (V-Ver, A-Add ou S-Substituir)\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n")).trim().charAt(0).toLowerCase();
+            }
+            /* Visualização do relatório completo de um aluno selecionado. */
+            if (awnser == "v") {
+                /* Identifica o aluno escolhido pelo usuário. */
+                let mostrar = alunos.indexOf(LMP(prompt("Qual aluno deseja ver as informações?\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n"))));
+
+                /* Exibe todas as informações do aluno. */
+
+                alert(registro[mostrar].saida());
+            }
+
+            /* Processo de adição de novas notas a um aluno. */
+            else if (awnser == "a") {
+
+                /* Controla repetidas adições de notas em sequência. */
+                let ver = true;
+                while (ver == true) {
+
+                    /* Identifica para qual aluno as notas serão adicionadas. */
+                    let value = alunos.indexOf(LMP(prompt("Para qual aluno deseja adicionar nota?\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join(", "))));
+
+                    /* Pergunta quantas notas serão registradas. */
+                    if (registro[value].notas.length == 0) {
+                        let repetir = validarQuantidade(prompt("Quantas notas vão ser adicionadas? (1 a 4)"));
+
+                        /* Adiciona cada nota individualmente ao boletim do aluno. */
+                        for (let i = 1; i <= repetir; i++) {
+                            let adicionar = prompt("Qual nota vai ser adicionada?");
+                            validar(adicionar);
+
+                            // Adiciona a nota ao array de notas
+                            registro[value].notas.push(Number(adicionar));
+                        }
+
+                        /* Pergunta se deseja continuar adicionando notas para este aluno. */
+                        ver = prompt("Deseja adicionar mais alguma nota? (Sim ou Não)").trim().toLowerCase().charAt(0);
+                        while (ver !== "s" && ver !== "n") {
+                            alert("Responda somente com sim ou não, por favor!");
+                            ver = prompt("Deseja adicionar mais alguma nota? (Sim ou Não)").trim().toLowerCase().charAt(0);
+                        }
+                        if (ver == "s") { ver = true };
+                    }
+
+                    /* Tratamento quando o aluno já tem algumas notas, mas ainda não completou 4. */
+                    else if (registro[value].notas.length > 0 && registro[value].notas.length < 4) {
+                        let repetir = prompt(`Este aluno já tem ${registro[value].notas.length} notas no boletim, deseja adicionar notas ou substituir alguma nota? (A-Add ou S-Substituir)`).trim().toLowerCase().charAt(0);
+
+                        if (repetir == "a") {
+
+                            /* Valida quantas notas adicionais podem ser feitas. */
+                            let repetir = validarQuantidadeSubs(prompt(`Quantas notas vão ser adicionadas? (1 a ${4 - registro[value].notas.length})`), value);
+
+                            /* Adiciona as notas restantes conforme solicitado. */
+                            for (let i = 1; i <= repetir; i++) {
+                                let adicionar = prompt("Qual nota vai ser adicionada? (" + i + "/" + repetir + ")");
+                                validar(adicionar);
+
+                                // Nota adicionada ao boletim
+                                registro[value].notas.push(adicionar);
+                            }
+                        }
+                        /* Opção de substituir notas quando desejado pelo usuário. */
+                        else if (repetir == "s") {
+
+                        }
+                    }
+
+                    /* Situação em que o aluno já possui as 4 notas registradas. */
+                    else {
+                        let repetir = prompt(`Este aluno já tem todas as notas no boletim, deseja substituir alguma nota? (S-sim ou N-Não)`).trim().toLowerCase().charAt(0);
+
+                        /* Garante que a resposta seja válida (s ou n). */
+                        while (repetir !== "s" && repetir !== "n") {
+                            alert("Digite apenas sim ou não!");
+                            repetir = prompt(`Este aluno já tem todas as notas no boletim, deseja substituir alguma nota? (S-Sim ou N-Não)`).trim().toLowerCase().charAt(0);
+                        }
+
+                        /* Pergunta qual nota deve ser substituída. */
+                        if (repetir == "s") {
+                            substituicao(value);
+                            break;
+                        }
+
+                    }
+
+                }
+            }
+
+            /*Caso o usuário deseje substituir alguma nota de um aluno*/
+            else if (awnser == "s") {
+                let value = alunos.indexOf(LMP(prompt("Para qual aluno deseja adicionar nota?\n\n(" + registro.map(aluno => aluno.nome).join(", ") + ")")));
+                if (registro[value].notas.length !== 0) {
+                    substituicao(value)
+                }
+                else {
+                    alert("Não foi possível substituir notas desde aluno pois o mesmo não possui nenhuma nota registrada");
+                };
+            }
+
+            /*Caso o usuário deseje adicionar ou retirar alunos do registro*/
+            else if (awnser == "o") {
+                let value = prompt("Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n") + "\n\nCaso deseje voltar a tela inicial, digite voltar").trim().charAt(0).toLowerCase();
+                while (value !== "a" && value !== "r" && value !== "v") {
+                    alert("Digite somente opções disponíveis!");
+                    value = prompt("Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n") + "\n\nCaso deseje voltar a tela inicial, digite voltar").trim().charAt(0).toLowerCase();
+                }
+                if (value == "a") {
+                    adicionarAluno();
+                }
+
+                else if (value == "r") {
+                    let indice = 0;
+                    let verificar = [];
+                    let retirar = LMP(prompt("Digite o nome do aluno que deseja retirar do registro\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n")));
+                    while (!alunos.includes(retirar)) {
+                        alert("Digite somente nomes que existam no registro!");
+                        let retirar = LMP(prompt("Digite o nome do aluno que deseja retirar do registro\n\nAlunos cadastrados: \n\n" + registro.map(aluno => aluno.nome).join("\n") + "\n\nCaso deseje voltar a tela inicial, digite voltar"));
+                    }
+                    for (let item of registro) {
+                        if (item.nome == retirar) {
+                            let foda_se = registro.indexOf(item);
+                            registro.splice(foda_se, 1);
+                            let foda_se2 = alunos.indexOf(retirar);
+                            alunos.splice(foda_se2, 1);
+                        }
+                    }
+                }
+            }
+        } else {
+            let vazio = prompt("O registro está vazio, deseja adicionar alunos? (S-Sim ou N-Não)").trim().toLowerCase().charAt(0);
+            while (vazio !== "s" && vazio !== "n") {
+                alert("Digite apenas sim ou não!");
+                vazio = prompt("O registro está vazio, deseja adcionar alunos? (S-Sim ou N-Não)").trim().toLowerCase().charAt(0);
+            }
+            if (vazio == "s") {
+                adicionarAluno();
+            }
+            else {
+                alert("Tudo bem, obrigado por usar de nossos serviços!");
+                break;
+                break;
+                break;
+            }
+        }
+    }
 </script>
