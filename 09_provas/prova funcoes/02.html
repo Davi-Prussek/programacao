@@ -25,7 +25,7 @@
 
 
         //NOTA MENTAL: Esse início aqui  //#region  é só pra poder fechar o comentário, não influecia em nada no código. O //#endregion a mesma coisa.
-
+    
 //#region --Função que valida se a nota inserida é válida--
         function validar(n) {
             /*Validação que verifica se o valor inserido é um number*/
@@ -94,6 +94,8 @@
             }).join(" ");};
 //#endregion
 
+        //NOTA MENTAL: O .map serve somente pra deixar a formatação da lista de alunos mais bonitinha na hora de mostrar pro usuário. E o que ele faz basicamente é aplicar uma regra a cada elemento do array, exemplo: registro.map(aluno => aluno.nome) pra cada objeto do array registro, ele vai retornar a propriedade nome do objeto, ou seja, aluno.nome
+        
 //#region --Função que calcula a média do aluno--
         function calcMedia(notas) {
             /* Variável que irá armazenar o resultado da média */
@@ -229,9 +231,6 @@
             if (registro.length > 0) {
                 /*Pergunta ao usuário qual ação deseja realizar (ver, adicionar ou substituir notas)*/
                 let awnser = prompt("Deseja ver ou adicionar ou substituir notas? (V-Ver, A-Add ou S-Substituir)\n\nAlunos cadastrados:\n\n"+registro.map(aluno => aluno.nome).join("\n")+`\n\nCaso deseje adicionar ou retirar alunos do registro, digite "outros"`).trim().charAt(0).toLowerCase();
-                
-                //NOTA MENTAL: O .map serve somente pra deixar a formatação da lista de alunos mais bonitinha na hora de mostrar pro usuário. E o que ele faz basicamente é aplicar uma regra a cada elemento do array, exemplo: registro.map(aluno => aluno.nome) pra cada objeto do array registro, ele vai retornar a propriedade nome do objeto, ou seja, aluno.nome.
-
                 /*Valida se a opção digitada é válida*/
                 while (awnser !== "v" && awnser !== "a" && awnser !== "s" && awnser !== "o") {
                     alert("Digite apenas opções válidas!");
