@@ -229,6 +229,7 @@
             if (registro.length > 0) {
                 /*Pergunta ao usuário qual ação deseja realizar (ver, adicionar ou substituir notas)*/
                 let awnser = prompt("Deseja ver ou adicionar ou substituir notas? (V-Ver, A-Add ou S-Substituir)\n\nAlunos cadastrados:\n\n"+registro.map(aluno => aluno.nome).join("\n")+`\n\nCaso deseje adicionar ou retirar alunos do registro, digite "outros"`).trim().charAt(0).toLowerCase();
+                
                 //NOTA MENTAL: O .map serve somente pra deixar a formatação da lista de alunos mais bonitinha na hora de mostrar pro usuário. E o que ele faz basicamente é aplicar uma regra a cada elemento do array, exemplo: registro.map(aluno => aluno.nome) pra cada objeto do array registro, ele vai retornar a propriedade nome do objeto, ou seja, aluno.nome.
 
                 /*Valida se a opção digitada é válida*/
@@ -269,6 +270,7 @@
                         /*Pergunta quantas notas serão adicionadas no boletim do aluno escolhido*/
                         if (registro[value].notas.length == 0) {
                             let repetir = validarQuantidade(prompt("Quantas notas vão ser adicionadas? (1 a 4)"));
+                            
                             //NOTA MENTAL: Explicação dessas linhas  registro[value].notas  registro é o array registro, aí ele pediu a variável value que é o nome do aluno, ai com o indexOf ele procura o índice do aluno e guarda na variável value. Aí  [value]  aqui ele usa esse índice no registro pra acessar o aluno requerido, e o aluno é um objeto js. Ai na ultima parte,  .notas  ele está acessando a propriedade notas do objeto aluno dentro do registro. 
 
                             /*Adiciona cada nota individualmente ao boletim do aluno*/
@@ -329,7 +331,7 @@
                     while (value == -1) {
                         alert("Digite um aluno existente no registro!");
                         value = alunos.indexOf(LMP(prompt("Para qual aluno deseja substituir nota?\n\n(" + registro.map(aluno => aluno.nome).join(", ") + ")")));}
-                    /* Executa a substituição caso o aluno já tenha alguma nota*/
+                    /* Executa o processo de substituição caso o aluno já tenha alguma nota*/
                     if (registro[value].notas.length !== 0) {
                         substituicao(value);
                         /*Caso o aluno selecionado não tenha nenhuma nota, ele retorna uma mensagem pro usuário*/
@@ -338,69 +340,45 @@
                 /*Caso o usuário deseje adicionar ou retirar alunos do registro*/
                 else if (awnser == "o") {
                     let value = prompt(
-                        "Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" +
-                        registro.map(aluno => aluno.nome).join("\n") +
-                        "\n\nCaso deseje voltar a tela inicial, digite voltar"
-                    ).trim().charAt(0).toLowerCase(); 
-                    
+                        "Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" +registro.map(aluno => aluno.nome).join("\n") +"\n\nCaso deseje voltar a tela inicial, digite voltar").trim().charAt(0).toLowerCase(); 
+                    /*Verifica se a resposta digitada pelo usuário é uma das opções*/
                     while (value !== "a" && value !== "r" && value !== "v") {
                         alert("Digite somente opções disponíveis!");
-                        value = prompt(
-                            "Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" +
-                            registro.map(aluno => aluno.nome).join("\n") +
-                            "\n\nCaso deseje voltar a tela inicial, digite voltar"
-                        ).trim().charAt(0).toLowerCase();
-                    }
-
+                        value = prompt("Deseja adicionar ou retirar alunos do registro?(A-Add ou R-Retirar)\n\nAlunos cadastrados: \n\n" +registro.map(aluno => aluno.nome).join("\n") +"\n\nCaso deseje voltar a tela inicial, digite voltar").trim().charAt(0).toLowerCase();}
+                    /*Se o usuário deseja adicionar alunos ao registro, vai ativar a função de adicionar alunos, criando um novo objeto chamado aluno e colocando no array registro*/
                     if (value == "a") {
-                        adicionarAluno();
-                    }
-
+                        adicionarAluno();}
+                    /*Caso o usuário deseje retirar algum aluno do registro, vai jogar pra cá*/
                     else if (value == "r") {
-
-                        /* Solicita o nome do aluno a ser removido */
-                        let retirar = LMP(prompt(
-                            "Digite o nome do aluno que deseja retirar do registro\n\nAlunos cadastrados: \n\n" +
-                            registro.map(aluno => aluno.nome).join("\n")
-                        ));
-
-                        /* Valida se o aluno existe no registro */
+                        /*Solicita o nome do aluno a ser removido*/
+                        let retirar = LMP(prompt("Digite o nome do aluno que deseja retirar do registro\n\nAlunos cadastrados: \n\n" +registro.map(aluno => aluno.nome).join("\n")));
+                        /*Valida se o aluno existe no registro*/
                         while (!alunos.includes(retirar)) {
                             alert("Digite somente nomes que existam no registro!");
                             retirar = LMP(prompt(
                                 "Digite o nome do aluno que deseja retirar do registro\n\nAlunos cadastrados: \n\n" +
                                 registro.map(aluno => aluno.nome).join("\n") +
-                                "\n\nCaso deseje voltar a tela inicial, digite voltar"
-                            ));
-                        }
-
-                        /* Remove o aluno do registro e da lista de nomes */
+                                "\n\nCaso deseje voltar a tela inicial, digite voltar"));}
+                        /*Remove o aluno do registro e da lista de nomes*/
                         for (let i = 0; i < registro.length; i++) {
                             if (registro[i].nome == retirar) {
                                 registro.splice(i,1);
-                                alunos.splice(i,1);
-                            }
-                        }
-                    }
-                }
-            } 
-
-            /* Caso o registro esteja vazio, pergunta se deseja adicionar alunos */
+                                alunos.splice(i,1);}}}}} 
+            /*Caso o registro esteja vazio, pergunta se deseja adicionar alunos*/
             else {
                 let vazio = prompt("O registro está vazio, deseja adicionar alunos? (S-Sim ou N-Não)").trim().toLowerCase().charAt(0);
+                /*Verifica se a resposta do usuário é sim ou não*/
                 while (vazio !== "s" && vazio !== "n") {
                     alert("Digite apenas sim ou não!");
-                    vazio = prompt("O registro está vazio, deseja adcionar alunos? (S-Sim ou N-Não)").trim().toLowerCase().charAt(0);
-                }
+                    vazio = prompt("O registro está vazio, deseja adcionar alunos? (S-Sim ou N-Não)").trim().toLowerCase().charAt(0);}
+                    /*Se for sim, joga pra cá*/
                 if (vazio == "s") {
-                    adicionarAluno();
-                }
+                    /*Ai vai adicionar alunos ao registro, criando o objeto aluno com todas as propriedades*/
+                    adicionarAluno();}
+                /*Se for não, ele joga pra cá e encerra o loop principal*/
                 else {
                     alert("Tudo bem, obrigado por usar nossos serviços!");
-                    break;
-                }
-            }
-        }
+                    break;}}}
 //#endregion
 
 </script>
