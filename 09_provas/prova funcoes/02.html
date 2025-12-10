@@ -294,7 +294,7 @@
                             if (repetir == "a") {
                                 /*Valida quantas notas adicionais podem ser feitas*/
                                 let repetir = validarQuantidadeSubs(prompt(`Quantas notas vão ser adicionadas? (1 a ${4 - registro[value].notas.length})`), value);
-                                //NOTA MENTAL: A gete passa o prompt como primeiro parâmetro na função e o próprio value como segundo parâmetro pra não dar erro. Por que dá erro? pergunta pro professor. E a gente coloca  (1 a ${4 - registro[value].notas.length})  pra própria quantidade de notas do aluno selecionado limitar o requerimento de notas.
+                                //NOTA MENTAL: A gente passa o prompt como primeiro parâmetro na função e o próprio value como segundo parâmetro pra não dar erro. Por que dá erro? pergunta pro professor. E a gente coloca  (1 a ${4 - registro[value].notas.length})  pra própria quantidade de notas do aluno selecionado limitar o requerimento de notas.
 
                                 /*Adiciona as notas restantes conforme solicitado com um loop*/
                                 for (let i = 1; i <= repetir; i++) {
